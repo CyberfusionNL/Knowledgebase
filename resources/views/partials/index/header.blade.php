@@ -1,7 +1,7 @@
 <!-- restyle : intro -->
-<section class="jumbotron-fluid restyle intro box grid red d-flex align-items-center">
-    <div class="background"></div>
+<section class="jumbotron-fluid restyle intro box grid red d-flex align-items-center pb-0">
     <div class="container-fluid">
+    <div class="background"></div>
 
         <div class="row align-items-center justify-content-center">
             <div class="col-md-5 mx-2">
@@ -17,8 +17,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
-                <div class="box">
+            <div class="col-md-12 p-0">
+                <div class="box py-5">
                     <div class="row justify-content-around">
                         <div class="card col-md-3 mr-1 p-0">
                             <div class="card-header">
