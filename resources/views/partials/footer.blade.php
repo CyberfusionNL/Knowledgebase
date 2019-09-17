@@ -62,13 +62,13 @@
                         <p>Lid van:</p>
                     </div>
                     <div class="col-md-3">
-                        <a href="https://nlnog.net/"><img src="img/lid-nlnog.png" alt="Stichting NLNOG"/></a>
+                        <a href="https://nlnog.net/"><img src="/img/lid-nlnog.png" alt="Stichting NLNOG"/></a>
                     </div>
                     <div class="col-md-3">
-                        <a href="https://www.ripe.net/"><img src="img/lid-ripe.png" alt="RIPE"/></a>
+                        <a href="https://www.ripe.net/"><img src="/img/lid-ripe.png" alt="RIPE"/></a>
                     </div>
                     <div class="col-md-3">
-                        <a href="https://www.ispconnect.nl/"><img src="img/lid-ispconnect.png" alt="ISPConnect"/></a>
+                        <a href="https://www.ispconnect.nl/"><img src="/img/lid-ispconnect.png" alt="ISPConnect"/></a>
                     </div>
                 </div>
             </div>
@@ -78,11 +78,11 @@
                         <p>Like ons:</p>
                     </div>
                     <div class="col-md-3">
-                        <a href="https://www.linkedin.com/company/cyberfusion/"><img src="img/linkedin_icon.png"
+                        <a href="https://www.linkedin.com/company/cyberfusion/"><img src="/img/linkedin_icon.png"
                                                                                      alt="LinkedIn"/></a>
                     </div>
                     <div class="col-md-3">
-                        <a href="https://twitter.com/CyberfusionNL"><img src="img/twitter_icon.png" alt="Twitter"/></a>
+                        <a href="https://twitter.com/CyberfusionNL"><img src="/img/twitter_icon.png" alt="Twitter"/></a>
                     </div>
                 </div>
             </div>
