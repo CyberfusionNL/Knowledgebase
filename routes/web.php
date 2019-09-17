@@ -16,6 +16,9 @@ Route::get('/', function () {
 
 Route::prefix('/test')->group(function () {
     Route::get('/home', function () {
-        return view('layouts.master');
+        return view('home');
+    });
+    Route::get('/article', function () {
+        return view('article');
     });
 });

@@ -7775,3 +7775,25 @@ nav .nav-link.collapsed .sub {
         height: auto
     }
 }
+
+ul .purple-bullet {
+    list-style: none; /* Remove default bullets */
+}
+
+ul.purple-bullet li::after {
+    /*content: "\f103";*/
+}
+
+ul.purple-bullet li::before {
+    color: #2e2e6e;
+    content: "\2022";
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+ul.purple-bullet li {
+    color: #2e2e6e;
+    list-style-image: none;
+}

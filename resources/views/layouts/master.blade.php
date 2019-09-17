@@ -57,7 +57,9 @@
         </div>
     </header>
     <!-- Header -->
-    @include('partials.index.header')
+    @yield('header')
+
+    @yield('content')
 
     @include('partials.footer')
 
