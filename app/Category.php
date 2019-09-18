@@ -10,4 +10,13 @@ class Category extends Model
     public $fillable = ['parent_id', 'name', 'hidden'];
 
     protected $table = 'categories';
+
+    public function articles() {
+        return $this->hasMany('App\Article');
+    }
+
+    public function public_articles()
+    {
+        return $this->articles()->where('state', Article::PUBLISHED);
+    }
 }

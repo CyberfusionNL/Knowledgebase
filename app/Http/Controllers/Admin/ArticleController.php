@@ -12,14 +12,9 @@ use Illuminate\Support\Facades\Validator;
 class ArticleController extends Controller
 {
 
-    const PUBLISHED = 'published';
-    const DRAFT = 'draft';
-    const PLANNED = 'planned';
-    const REVIEW = 'review';
-
     public function articles()
     {
-        return view('admin.articles')->with('articles', Article::where('state', self::PUBLISHED)->get());
+        return view('admin.articles')->with('articles', Article::where('state', Article::PUBLISHED)->get());
     }
 
     public function newArticle()
@@ -38,7 +33,8 @@ class ArticleController extends Controller
         $article->body = $validated['body'];
         $article->state = $validated['state'];
         $article->author_id = $author->id;
-        if ($article->state == self::PUBLISHED) {
+        $article->category_id = $validated['category'];
+        if ($article->state == Article::PUBLISHED) {
             $article->publish_date = Carbon::now()->toDateTimeString();
         }
         $article->save();
@@ -54,7 +50,8 @@ class ArticleController extends Controller
         $article->short_summary = $validated['summary'];
         $article->body = $validated['body'];
         $article->state = $validated['state'];
-        if ($article->state == self::PUBLISHED) {
+        $article->category_id = $validated['category'];
+        if ($article->state == Article::PUBLISHED) {
             $article->publish_date = Carbon::now()->toDateTimeString();
         }
         $article->save();

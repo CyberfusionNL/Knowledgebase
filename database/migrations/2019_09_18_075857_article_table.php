@@ -16,6 +16,7 @@ class ArticleTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('author_id')->unsigned();
+            $table->integer('category_id')->unsigned();
             $table->string('title', 64);
             $table->string('short_summary', 128);
             $table->longText('body');

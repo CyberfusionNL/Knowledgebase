@@ -19,6 +19,11 @@ class Article extends Model
     protected $appends = ['author'];
     public $timestamps = true;
 
+    public const PUBLISHED = 'published';
+    public const DRAFT = 'draft';
+    public const PLANNED = 'planned';
+    public const REVIEW = 'review';
+
     public function getAuthorAttribute()
     {
         return $this->author();
@@ -27,6 +32,11 @@ class Article extends Model
     public function author()
     {
         return $this->hasOne('App\Author');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo('category');
     }
 
 }

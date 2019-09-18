@@ -15,6 +15,7 @@ class MakeRelations extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             $table->foreign('author_id')->references('id')->on('authors');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
 
         Schema::table('authors', function (Blueprint $table) {
@@ -36,11 +37,14 @@ class MakeRelations extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             $table->dropForeign('articles_author_id_foreign');
+            $table->dropForeign('articles_category_id_foreign');
         });
 
         Schema::table('authors', function (Blueprint $table) {
             $table->dropForeign('authors_user_id_foreign');
         });
+
+
 
 //        Schema::table('categories', function (Blueprint $table) {
 //            $table->dropForeign('categories_parent_id_foreign');

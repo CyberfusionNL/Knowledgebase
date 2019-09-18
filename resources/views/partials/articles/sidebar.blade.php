@@ -9,8 +9,8 @@
                             <a class="btn collapse sub sidebar-link">{{$subcategory->name}}</a>
                             <div class="collapse sidebar">
                                 <ul>
-                                    @foreach(\App\Category::where('hidden', 0)->where('parent_id', $subcategory->id)->get() as $supersubcategory)
-                                        <li style="list-style-image: none; list-style-type: disc; color:#2e2e6e;font-size: .8em"><a style="color:#2e2e6e !important;font-weight: 400" href="">{{$supersubcategory->name}}</a></li>
+                                    @foreach($subcategory->public_articles as $item)
+                                        <li style="list-style-image: none; list-style-type: disc; color:#2e2e6e;font-size: .8em"><a style="color:#2e2e6e !important;font-weight: 400" href="">{{$item->title}}</a></li>
                                     @endforeach
                                 </ul>
                             </div>
