@@ -81,7 +81,7 @@
             @foreach($articles as $article)
                 <div class="row mb-3">
                     <div class="col-12">
-                        <a href="#"><h5>{{$article['title']}}</h5></a>
+                        <a href="{{route('admin.article', ['id' => $article['id']])}}"><h5>{{$article['title']}}</h5></a>
                         <span>{{ $article['short_summary'] }}</span>
                     </div>
                 </div>
