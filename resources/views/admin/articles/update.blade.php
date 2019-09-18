@@ -86,17 +86,17 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="title"><h5>Artikel</h5></label>
-                                    <input placeholder="Moderne hosting-technieken..." class="form-control" value="{{old('title')}}" type="text" id="title" name="title"/>
+                                    <input placeholder="Moderne hosting-technieken..." class="form-control" value="{{old('title') ?: $article['title']}}" type="text" id="title" name="title"/>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="status"><h5>Publicatie status</h5></label>
                                     <select name="state" id="status" class="form-control">
-                                        <option value="draft">Draft</option>
-                                        <option value="review">Ter review</option>
-                                        <option value="planned">Gepland</option>
-                                        <option value="published">Gepubliceerd</option>
+                                        <option {{ selected($article['state'], 'draft') }} value="draft">Draft</option>
+                                        <option {{ selected($article['state'], 'review') }} value="review">Ter review</option>
+                                        <option {{ selected($article['state'], 'planned') }} value="planned">Gepland</option>
+                                        <option {{ selected($article['state'], 'published') }} value="published">Gepubliceerd</option>
                                     </select>
                                 </div>
                             </div>
@@ -104,12 +104,12 @@
                         <div class="row">
                             <div class="col-12">
                                 <label for="body"><h5>Artikel inhoud</h5></label>
-                                <textarea name="body" id="body">{{ old('body') }}</textarea>
+                                <textarea name="body" id="body">{{ old('body') ?: $article['body']  }}</textarea>
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-4 justify-content-end">
-                                <button type="submit" class="btn btn-block">Aanmaken</button>
+                                <button type="submit" class="btn btn-block">Update</button>
                             </div>
                         </div>
                     </form>

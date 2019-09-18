@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property  string title
- * @property  string body
- * @property  string state
+ * @property string title
+ * @property string body
+ * @property string state
  * @property string published_date
+ * @property integer author_id
  */
 class Article extends Model
 {

@@ -9,6 +9,7 @@ class Author extends Model
     protected $table = 'authors';
     protected $fillable = ['user_id', 'name', 'surname', 'organisation', 'bio'];
     protected $appends = ['user'];
+    public $timestamps = false;
 
     public function getUserAttribute()
     {

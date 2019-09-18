@@ -16,7 +16,7 @@ class ArticleTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('author_id')->unsigned();
-            $table->string('title', 48);
+            $table->string('title', 64);
             $table->longText('body');
             $table->string('state', 9)->default('draft');
             $table->timestamp('publish_date')->nullable();

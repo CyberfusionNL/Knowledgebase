@@ -40,9 +40,12 @@ Route::prefix('/admin')->group(function () {
 
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/', 'Admin\DashboardController@dashboard');
+        Route::get('/dashboard', 'Admin\DashboardController@dashboard')->name('admin.dashboard');
+
         Route::get('/articles', 'Admin\ArticleController@articles')->name('admin.articles');
         Route::get('/articles/new', 'Admin\ArticleController@newArticle')->name('admin.new_article');
+        Route::post('/articles/new', 'Admin\ArticleController@store')->name('admin.new_article');
         Route::get('/article/{id}', 'Admin\ArticleController@article')->name('admin.article');
-        Route::get('/dashboard', 'Admin\DashboardController@dashboard')->name('admin.dashboard');
+        Route::post('/article/{id}', 'Admin\ArticleController@update');
     });
 });
