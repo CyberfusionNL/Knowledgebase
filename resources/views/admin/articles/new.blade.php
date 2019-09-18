@@ -10,7 +10,7 @@
                     <h2>Cyberfusion <strong>Kennisbank</strong></h2>
                 </div>
                 <div class="col-md-8 d-flex align-items-center justify-content-around">
-                    <h2>Artikelen</h2>
+                    <h2>Nieuw <strong>artikel</strong></h2>
                     <svg style="height: 8em" class="d-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.21 34.31"><title>Leren</title>
                         <g id="Layer_2" data-name="Layer 2">
                             <g id="Layer_4" data-name="Layer 4">
@@ -76,10 +76,43 @@
     </section>
     <!-- End header -->
 
-    <section class="jumbotron-fluid restyle grid d-flex align-items-center">
+    <section class="jumbotron-fluid form restyle grid d-flex align-items-center">
         <div class="container">
             <div class="row">
-                <!-- Todo: articles dashboard -->
+                <div class="col-12">
+                    <form method="post" class="p-0" action>
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <div class="form-group">
+                                    <label for="title"><h5>Artikel</h5></label>
+                                    <input placeholder="Moderne hosting-technieken..." class="form-control" type="text" id="title" name="title"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="form-group">
+                                    <label for="status"><h5>Publicatie status</h5></label>
+                                    <select id="status" class="form-control">
+                                        <option>Draft</option>
+                                        <option>Ter review</option>
+                                        <option>Gepland</option>
+                                        <option>Gepubliceerd</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="body"><h5>Artikel inhoud</h5></label>
+                                <textarea name="body" id="body"></textarea>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-4 justify-content-end">
+                                <button type="submit" class="btn btn-block">Aanmaken / updaten</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -105,4 +138,11 @@
             </div>
         </div>
     </footer>
+@endsection
+
+@section('footer-scripts')
+    <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('body');
+    </script>
 @endsection
