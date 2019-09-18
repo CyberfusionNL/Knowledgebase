@@ -18,6 +18,9 @@ class ArticleTable extends Migration
             $table->integer('author_id')->unsigned();
             $table->string('title', 48);
             $table->longText('body');
+            $table->string('state', 9)->default('draft');
+            $table->timestamp('publish_date')->nullable();
+            $table->timestamps();
         });
     }
 
