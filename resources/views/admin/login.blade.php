@@ -7,12 +7,21 @@
             <div class="row">
                 <div class="col-md-4">
                     <h2>Cyberfusion <strong>Kennisbank</strong></h2>
+                    @if ($errors->any())
+                        <ul>
+                            <li>U mama</li>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
                 </div>
                 <div class="col-md-8 d-flex align-items-start">
-                    <form method="post" action="#">
+                    <form method="post" action>
                         <h4 style="color: #ff6464">Inloggen</h4>
                         <div class="form-group">
-                            <input class="form-control" type="text" name="username" placeholder="Cyberfusion" required>
+                            {{ csrf_field() }}
+                            <input class="form-control" type="text" name="name" placeholder="Cyberfusion" required>
                             <input class="form-control" type="password" name="password" placeholder="**********" required>
                         </div>
                         <div class="form-group">

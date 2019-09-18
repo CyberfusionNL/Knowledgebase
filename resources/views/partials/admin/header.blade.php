@@ -31,9 +31,13 @@
 
                     <nav class="nav float-right align-items-center">
                         @auth
-                            <a class="nav-link" href="#">Knowledgebase</a>
-                            <a class="nav-link" href="#">Artikelen</a>
-                            <a class="nav-link" href="#">Uitloggen</a>
+                            <a class="nav-link" href="{{ route('home') }}">Knowledgebase</a>
+                            <a class="nav-link" href="{{ route('admin.articles') }}">Artikelen</a>
+                            <form method="post" action="{{ route('logout') }}">
+                                {{ csrf_field() }}
+                                <button type="submit" class="nav-link border-0" style="background-color: transparent">Uitloggen</button>
+                            </form>
+{{--                            <a class="nav-link" href="#">Uitloggen</a>--}}
                         @endauth
                         @guest
                             <a class="nav-link" href="#">Login</a>
