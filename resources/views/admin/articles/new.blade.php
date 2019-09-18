@@ -103,6 +103,14 @@
                         </div>
                         <div class="row">
                             <div class="col-12">
+                                <div class="form-group">
+                                    <label for="summary"><h5>Korte samenvatting</h5></label>
+                                    <input class="form-control" maxlength="128" type="text" name="summary" id="summary" value="{{ old('summary') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
                                 <label for="body"><h5>Artikel inhoud</h5></label>
                                 <textarea name="body" id="body">{{ old('body') }}</textarea>
                             </div>

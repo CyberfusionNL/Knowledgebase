@@ -10,7 +10,7 @@
                     <h2>Cyberfusion <strong>Kennisbank</strong></h2>
                 </div>
                 <div class="col-md-8 d-flex align-items-center justify-content-around">
-                    <h2>Nieuw <strong>artikel</strong></h2>
+                    <h2>Update <strong>artikel</strong></h2>
                     <svg style="height: 8em" class="d-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.21 34.31"><title>Leren</title>
                         <g id="Layer_2" data-name="Layer 2">
                             <g id="Layer_4" data-name="Layer 4">
@@ -98,6 +98,14 @@
                                         <option {{ selected($article['state'], 'planned') }} value="planned">Gepland</option>
                                         <option {{ selected($article['state'], 'published') }} value="published">Gepubliceerd</option>
                                     </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="summary"><h5>Korte samenvatting</h5></label>
+                                    <input class="form-control" maxlength="128" type="text" name="summary" id="summary" value="{{ old('summary') ?: $article['short_summary'] }}" />
                                 </div>
                             </div>
                         </div>

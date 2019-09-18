@@ -18,7 +18,7 @@ class ArticleController extends Controller
 
     public function articles()
     {
-        return view('admin.articles');
+        return view('admin.articles')->with('articles', Article::where('state', self::PUBLISHED)->get());
     }
 
     public function newArticle()
@@ -28,10 +28,11 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->only(['title', 'body', 'state']), [
+        $validator = Validator::make($request->only(['title', 'body', 'state', 'summary']), [
             'title' => 'required|string|max:64',
             'body' => 'required|string',
-            'state' => 'required|string|in:review,published,draft,planned'
+            'state' => 'required|string|in:review,published,draft,planned',
+            'summary' => 'required|string|max:128'
         ]);
 
         if ($validator->fails()) return view('admin.articles.new')->withErrors($validator->errors());
@@ -40,11 +41,12 @@ class ArticleController extends Controller
         $author = auth()->user()->author;
         $article = new Article;
         $article->title = $validated['title'];
+        $article->short_summary = $validated['summary'];
         $article->body = $validated['body'];
         $article->state = $validated['state'];
         $article->author_id = $author->id;
         if ($article->state == self::PUBLISHED) {
-            $article->published_date = Carbon::now()->toDateTimeString();
+            $article->publish_date = Carbon::now()->toDateTimeString();
         }
         $article->save();
         return redirect()->route('admin.articles');
@@ -52,23 +54,23 @@ class ArticleController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->only(['title', 'body', 'state']), [
+        $validator = Validator::make($request->only(['title', 'body', 'state', 'summary']), [
             'title' => 'required|string|max:64',
             'body' => 'required|string',
-            'state' => 'required|string|in:review,published,draft,planned'
+            'state' => 'required|string|in:review,published,draft,planned',
+            'summary' => 'required|string|max:128'
         ]);
 
-        if ($validator->fails()) return view('admin.articles.new')->withErrors($validator->errors());
+        if ($validator->fails()) return view('admin.articles.update')->withErrors($validator->errors());
         $validated = $validator->validated();
-
-        $author = auth()->user()->author;
 
         $article = Article::findOrFail($id);
         $article->title = $validated['title'];
+        $article->short_summary = $validated['summary'];
         $article->body = $validated['body'];
         $article->state = $validated['state'];
         if ($article->state == self::PUBLISHED) {
-            $article->published_date = Carbon::now()->toDateTimeString();
+            $article->publish_date = Carbon::now()->toDateTimeString();
         }
         $article->save();
         return redirect()->route('admin.articles');

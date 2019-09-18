@@ -78,9 +78,14 @@
 
     <section class="jumbotron-fluid restyle grid d-flex align-items-center">
         <div class="container">
-            <div class="row">
-                <!-- Todo: articles dashboard -->
-            </div>
+            @foreach($articles as $article)
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <a href="#"><h5>{{$article['title']}}</h5></a>
+                        <span>{{ $article['short_summary'] }}</span>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </section>
 
