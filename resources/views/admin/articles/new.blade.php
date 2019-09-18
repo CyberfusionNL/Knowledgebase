@@ -91,11 +91,11 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="status"><h5>Publicatie status</h5></label>
-                                    <select id="status" class="form-control">
-                                        <option>Draft</option>
-                                        <option>Ter review</option>
-                                        <option>Gepland</option>
-                                        <option>Gepubliceerd</option>
+                                    <select naem="state" id="status" class="form-control">
+                                        <option value="draft">Draft</option>
+                                        <option value="review">Ter review</option>
+                                        <option value="planned">Gepland</option>
+                                        <option value="published">Gepubliceerd</option>
                                     </select>
                                 </div>
                             </div>
