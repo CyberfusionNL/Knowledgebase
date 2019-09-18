@@ -41,6 +41,7 @@ Route::prefix('/admin')->group(function () {
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/', 'Admin\DashboardController@dashboard');
         Route::get('/dashboard', 'Admin\DashboardController@dashboard')->name('admin.dashboard');
+        Route::get('/settings', 'Admin\SettingsController@settings')->name('admin.settings');
 
         Route::get('/articles', 'Admin\ArticleController@articles')->name('admin.articles');
         Route::get('/articles/new', 'Admin\ArticleController@newArticle')->name('admin.new_article');
