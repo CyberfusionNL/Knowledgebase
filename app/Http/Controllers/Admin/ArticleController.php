@@ -78,4 +78,9 @@ class ArticleController extends Controller
     {
         return view('admin.articles.update')->with('article', Article::findOrFail($id)->toArray());
     }
+
+    public function preview($id)
+    {
+        return view('admin.articles.preview')->with('article', Article::findOrFail($id)->toArray());
+    }
 }
