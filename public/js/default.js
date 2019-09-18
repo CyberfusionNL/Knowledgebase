@@ -46,6 +46,14 @@
             }
         });
 
+        $(".sidebar-link").click(function() {
+            if ($(this).hasClass("open")) {
+                $(this).removeClass("open");
+            } else {
+                $(this).addClass("open");
+            }
+        });
+
         $(".nav-link").click(function() {
             if ($(this).hasClass("collapsed")) {
                 $(this).removeClass("collapsed");

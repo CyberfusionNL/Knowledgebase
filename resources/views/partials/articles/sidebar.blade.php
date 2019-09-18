@@ -1,18 +1,23 @@
 <div class="col-4">
-    <ul>
-        <li class="mb-3">
-            <h5>LEARN THE BASICS <i style="font-size: .6em" class="fa fa-angle-double-down align-self-center"></i></h5>
-            <ul class="purple-bullet">
-                <li><a href="#">Release-384: Users can list flows and set Varnish settings <i style="font-size: .6em" class="fa fa-angle-double-down align-self-center"></i></a></li>
-                <li><a href="#">Release 332: Configure additional Hypernode settings using the API</a></li>
-                <li><a href="#">Release 312: Billing portal SSO URL endpoint and general improvements</a></li>
-            </ul>
-        </li>
-        <li class="mb-3">
-            <h5>START COLLABORATING <i style="font-size: .6em" class="fa fa-angle-double-right align-self-center"></i></h5>
-        </li>
-        <li class="mb-3">
-            <h5>MORE FEATURES <i style="font-size: .6em" class="fa fa-angle-double-right align-self-center"></i></h5>
-        </li>
-    </ul>
+    @foreach(\App\Category::where('hidden', 0)->where('parent_id', 0)->get() as $category)
+        <div class="collapse-container mb-4">
+            <a class="btn sidebar-link">{{$category->name}}</a>
+            <div class="collapse sidebar">
+                <ul>
+                    @foreach(\App\Category::where('hidden', 0)->where('parent_id', $category->id)->get() as $subcategory)
+                        <li>
+                            <a class="btn collapse sub sidebar-link">{{$subcategory->name}}</a>
+                            <div class="collapse sidebar">
+                                <ul>
+                                    @foreach(\App\Category::where('hidden', 0)->where('parent_id', $subcategory->id)->get() as $supersubcategory)
+                                        <li style="list-style-image: none; list-style-type: disc; color:#2e2e6e;font-size: .8em"><a style="color:#2e2e6e !important;font-weight: 400" href="">{{$supersubcategory->name}}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    @endforeach
 </div>
