@@ -9,7 +9,6 @@
                     <h2>Cyberfusion <strong>Kennisbank</strong></h2>
                     @if ($errors->any())
                         <ul>
-                            <li>U mama</li>
                             @foreach($errors->all() as $error)
                                 <li>{{ $error }}</li>
                             @endforeach
