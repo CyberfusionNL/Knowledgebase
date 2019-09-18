@@ -10,9 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::prefix('/test')->group(function () {
     Route::get('/home', function () {
@@ -21,4 +24,16 @@ Route::prefix('/test')->group(function () {
     Route::get('/article', function () {
         return view('article');
     });
+
+    Route::get('/login', function () {
+        return view('admin.login');
+    });
+});
+
+Route::prefix('/admin')->group(function () {
+    Route::get('/login', 'LoginController@showLoginForm')->name('admin.login');
+    Route::get('/dashboard', 'Admin\DashboardController@dashboard')->name('admin.dashboard');
+    Route::get('/access', function () {
+        return 'access requests not yet implemented, please contact support@cyberfusion.nl.';
+    })->name('admin.request_access');
 });
