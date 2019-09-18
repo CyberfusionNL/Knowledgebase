@@ -144,6 +144,8 @@
 @section('footer-scripts')
     <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
     <script>
-        CKEDITOR.replace('body');
+        CKEDITOR.replace('body', {
+            format_tags: 'p;h1;h2;h3;h4;h5;h6;pre;address;div'
+        });
     </script>
 @endsection
