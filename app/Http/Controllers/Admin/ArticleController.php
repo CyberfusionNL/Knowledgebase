@@ -67,7 +67,6 @@ class ArticleController extends Controller
         $article->title = $validated['title'];
         $article->body = $validated['body'];
         $article->state = $validated['state'];
-        $article->author_id = $author->id;
         if ($article->state == self::PUBLISHED) {
             $article->published_date = Carbon::now()->toDateTimeString();
         }
