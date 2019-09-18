@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Article;
+use App\Http\Requests\ArticleRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -26,17 +27,9 @@ class ArticleController extends Controller
         return view('admin.articles.new');
     }
 
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
-        $validator = Validator::make($request->only(['title', 'body', 'state', 'summary']), [
-            'title' => 'required|string|max:64',
-            'body' => 'required|string',
-            'state' => 'required|string|in:review,published,draft,planned',
-            'summary' => 'required|string|max:128'
-        ]);
-
-        if ($validator->fails()) return view('admin.articles.new')->withErrors($validator->errors());
-        $validated = $validator->validated();
+        $validated = $request->validated();
 
         $author = auth()->user()->author;
         $article = new Article;
@@ -52,17 +45,9 @@ class ArticleController extends Controller
         return redirect()->route('admin.articles');
     }
 
-    public function update(Request $request, $id)
+    public function update(ArticleRequest $request, $id)
     {
-        $validator = Validator::make($request->only(['title', 'body', 'state', 'summary']), [
-            'title' => 'required|string|max:64',
-            'body' => 'required|string',
-            'state' => 'required|string|in:review,published,draft,planned',
-            'summary' => 'required|string|max:128'
-        ]);
-
-        if ($validator->fails()) return view('admin.articles.update')->withErrors($validator->errors());
-        $validated = $validator->validated();
+        $validated = $request->validated();
 
         $article = Article::findOrFail($id);
         $article->title = $validated['title'];
