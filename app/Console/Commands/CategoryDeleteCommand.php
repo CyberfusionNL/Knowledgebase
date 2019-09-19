@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Category;
 use Illuminate\Console\Command;
+use Illuminate\Database\QueryException;
 
 class CategoryDeleteCommand extends Command
 {
@@ -45,7 +46,12 @@ class CategoryDeleteCommand extends Command
         }
 
         $choice = $this->choice('Which category do you want to delete?', $catIds);
-        Category::where('name', $choice)->delete();
+        try {
+            Category::where('name', $choice)->delete();
+        } catch (QueryException $e) {
+            $this->alert("Category '$choice' couldn't be deleted. It is still linked to a post.");
+            return;
+        }
         $this->alert("Category '$choice' has been deleted");
     }
 }
