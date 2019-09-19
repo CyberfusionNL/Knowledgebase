@@ -89,7 +89,13 @@
                                     <input placeholder="Moderne hosting-technieken..." class="form-control" value="{{old('title')}}" type="text" id="title" name="title"/>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-12">
+                            <div class="col-md-3 col-12">
+                                <div class="form-group">
+                                    <label for="slug"><h5>Slug</h5></label>
+                                    <input placeholder="moderne-hosting-technieken" class="form-control" value="{{old('slug')}}" maxlength="64" type="text" id="slug" name="slug"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-12">
                                 <div class="form-group">
                                     <label for="status"><h5>Publicatie status</h5></label>
                                     <select name="state" id="status" class="form-control">

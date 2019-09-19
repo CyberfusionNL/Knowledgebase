@@ -30,6 +30,8 @@ Route::prefix('/test')->group(function () {
     });
 });
 
+Route::get('/article/{slug}', 'ArticleController@show');
+
 Route::prefix('/admin')->group(function () {
     Route::get('/login', 'Auth\LoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\LoginController@login');

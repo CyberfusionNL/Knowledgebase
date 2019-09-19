@@ -18,6 +18,7 @@ class ArticleTable extends Migration
             $table->integer('author_id')->unsigned();
             $table->integer('category_id')->unsigned();
             $table->string('title', 64);
+            $table->string('slug', 64)->unique();
             $table->string('short_summary', 128);
             $table->longText('body');
             $table->string('state', 9)->default('draft');

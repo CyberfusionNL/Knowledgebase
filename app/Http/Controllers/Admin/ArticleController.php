@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -32,6 +33,11 @@ class ArticleController extends Controller
         $article->short_summary = $validated['summary'];
         $article->body = $validated['body'];
         $article->state = $validated['state'];
+        if(!empty($validated['slug'])) {
+            $article->slug = Str::slug($validated['slug']);
+        } else {
+            $article->slug = Str::slug($article->title);
+        }
         $article->author_id = $author->id;
         $article->category_id = $validated['category'];
         if ($article->state == Article::PUBLISHED) {
@@ -50,6 +56,11 @@ class ArticleController extends Controller
         $article->short_summary = $validated['summary'];
         $article->body = $validated['body'];
         $article->state = $validated['state'];
+        if(!empty($validated['slug'])) {
+            $article->slug = Str::slug($validated['slug']);
+        } else {
+            $article->slug = Str::slug($article->title);
+        }
         $article->category_id = $validated['category'];
         if ($article->state == Article::PUBLISHED) {
             $article->publish_date = Carbon::now()->toDateTimeString();

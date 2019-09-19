@@ -11,11 +11,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property string publish_date
  * @property string short_summary
  * @property integer author_id
+ * @property string slug
  */
 class Article extends Model
 {
     protected $table = 'articles';
-    protected $fillable = ['author_id', 'title', 'body', 'publish_date', 'state', 'short_summary'];
+    protected $fillable = ['author_id', 'title', 'body', 'publish_date', 'state', 'short_summary', 'slug'];
     protected $appends = ['author'];
     public $timestamps = true;
 
