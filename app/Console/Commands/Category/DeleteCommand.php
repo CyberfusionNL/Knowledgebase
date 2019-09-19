@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Category;
 
 use App\Category;
 use Illuminate\Console\Command;
 use Illuminate\Database\QueryException;
 
-class CategoryDeleteCommand extends Command
+class DeleteCommand extends Command
 {
     /**
      * The name and signature of the console command.

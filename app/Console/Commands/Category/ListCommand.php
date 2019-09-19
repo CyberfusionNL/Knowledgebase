@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Category;
 
 use App\Category;
 use Illuminate\Console\Command;
 
-class CategoryListCommand extends Command
+class ListCommand extends Command
 {
     /**
      * The name and signature of the console command.
