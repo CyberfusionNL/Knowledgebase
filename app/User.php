@@ -6,6 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * @property  string twofactor_secret
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -16,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'twofactor_secret',
     ];
 
     /**
@@ -25,7 +28,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'twofactor_secret',
     ];
 
     /**
@@ -39,5 +42,27 @@ class User extends Authenticatable
 
     public function author() {
         return $this->hasOne('App\Author');
+    }
+
+    /**
+     * Encrypt the user's twofactor_secret.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function setTwofactorSecretAttribute($value)
+    {
+        $this->attributes['twofactor_secret'] = encrypt($value);
+    }
+
+    /**
+     * Decrypt the user's twofactor_secret.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getTwofactorSecretAttribute($value)
+    {
+        return decrypt($value);
     }
 }

@@ -28,6 +28,14 @@ Route::prefix('/test')->group(function () {
     Route::get('/login', function () {
         return view('admin.login');
     });
+
+    Route::get('/twofactor', function () {
+        return view('admin.twofactor');
+    });
+
+    Route::get('/info', function () {
+        return phpinfo();
+    });
 });
 
 Route::get('/article/{slug}', 'ArticleController@show');
@@ -35,12 +43,15 @@ Route::get('/article/{slug}', 'ArticleController@show');
 Route::prefix('/admin')->group(function () {
     Route::get('/login', 'Auth\LoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\LoginController@login');
+    Route::post('/2fa', function () {
+        return redirect(URL()->previous());
+    })->name('2fa')->middleware('2fa');
     Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
     Route::get('/access', function () {
         return 'access requests not yet implemented, please contact support@cyberfusion.nl.';
     })->name('admin.request_access');
 
-    Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => ['auth', '2fa']], function () {
         Route::get('/', 'Admin\DashboardController@dashboard');
         Route::get('/dashboard', 'Admin\DashboardController@dashboard')->name('admin.dashboard');
         Route::get('/settings', 'Admin\SettingsController@settings')->name('admin.settings');
