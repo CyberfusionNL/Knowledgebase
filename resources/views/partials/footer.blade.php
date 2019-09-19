@@ -3,12 +3,12 @@
         <div class="row d-flex">
             <div class="col-md-12 mt-3 ml-2">
                 <nav class="nav justify-content-start align-items-center">
-                    <a class="nav-link" href="#">hosting</a>
-                    <a class="nav-link" href="#">add-ons</a>
-                    <a class="nav-link" href="#">partners</a>
-                    <a class="nav-link" href="#">cases</a>
-                    <a class="nav-link" href="#">agency blog</a>
-                    <a class="nav-link" href="#">contact</a>
+                    <a class="nav-link" href="https://cyberfusion.nl/agency">hosting</a>
+                    <a class="nav-link" href="https://cyberfusion.nl/ssl">add-ons</a>
+                    <a class="nav-link" href="https://cyberfusion.nl/partners">partners</a>
+                    <a class="nav-link" href="https://cyberfusion.nl/cases">cases</a>
+                    <a class="nav-link" href="https://blog.cyberfusion.nl/">agency blog</a>
+                    <a class="nav-link" href="https://cyberfusion.nl/contact">contact</a>
                 </nav>
             </div>
         </div>
