@@ -31,7 +31,7 @@
 
                     <nav class="nav float-right align-items-center">
                         @auth
-                            <a class="nav-link" href="{{ route('home') }}">Knowledgebase</a>
+                            <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
                             <a class="nav-link" href="{{ route('admin.articles') }}">Artikelen</a>
                             <form method="post" action="{{ route('logout') }}">
                                 {{ csrf_field() }}
