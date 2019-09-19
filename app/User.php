@@ -40,6 +40,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * The attributes default to values
+     * @var array
+     */
+    protected $attributes = [
+        'twofactor_secret' => ''
+    ];
+
     public function author() {
         return $this->hasOne('App\Author');
     }
