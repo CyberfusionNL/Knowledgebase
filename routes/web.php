@@ -47,6 +47,7 @@ Route::prefix('/admin')->group(function () {
         return redirect(URL()->previous());
     })->name('2fa')->middleware('2fa');
     Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+    Route::post('/lock', 'Auth\LoginController@lock')->name('lock');
     Route::get('/access', function () {
         return 'access requests not yet implemented, please contact support@cyberfusion.nl.';
     })->name('admin.request_access');

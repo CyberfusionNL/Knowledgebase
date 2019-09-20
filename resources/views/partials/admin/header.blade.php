@@ -37,7 +37,12 @@
                                 {{ csrf_field() }}
                                 <button type="submit" class="nav-link border-0" style="background-color: transparent">Uitloggen</button>
                             </form>
-{{--                            <a class="nav-link" href="#">Uitloggen</a>--}}
+                            @if(hasTwofactor(auth()->user()))
+                            <form method="post" action="{{ route('lock') }}">
+                                {{ csrf_field() }}
+                                <button type="submit" class="nav-link border-0" style="background-color: transparent">Vergrendel</button>
+                            </form>
+                            @endif()
                         @endauth
                         @guest
                             <a class="nav-link" href="#">Login</a>
