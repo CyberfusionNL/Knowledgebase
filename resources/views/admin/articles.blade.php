@@ -78,11 +78,20 @@
 
     <section class="jumbotron-fluid restyle grid d-flex align-items-center">
         <div class="container">
+            <div class="row">
+                <div class="col-8"></div>
+                <div class="col-4">
+                    <a href="{{route('admin.new_article')}}" class="btn btn-block float-right">Nieuw artikel</a>
+                </div>
+            </div>
             @foreach($articles as $article)
                 <div class="row mb-3">
                     <div class="col-12">
-                        <a href="{{route('admin.article', ['id' => $article['id']])}}"><h5>{{$article['title']}}</h5></a>
-                        <span>{{ $article['short_summary'] }}</span>
+                        <div class="float-left">
+                            <a target="_blank" href="{{route('admin.preview_article', ['id' => $article['id']])}}"><h5>{{$article['title']}}</h5></a>
+                            <span>{{ $article['short_summary'] }}</span>
+                        </div>
+                        <a class="btn btn-block float-right" href="{{ route('admin.article', ['id' => $article['id']]) }}">Bewerken</a>
                     </div>
                 </div>
             @endforeach
