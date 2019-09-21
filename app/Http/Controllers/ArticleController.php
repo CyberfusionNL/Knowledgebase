@@ -9,6 +9,10 @@ class ArticleController extends Controller
 {
     public function show($type, $slug)
     {
-        return view('admin.articles.preview')->with('article', Article::where('slug', $slug)->where('type', $type)->firstOrFail()->toArray());
+        $article = Article::where('slug', $slug)->where('type', $type)->firstOrFail()->toArray();
+        return view('admin.articles.preview')
+            ->with('page', substr($article['title'], 0, 32))
+            ->with('desc', $article['short_summary'])
+            ->with('article', $article);
     }
 }

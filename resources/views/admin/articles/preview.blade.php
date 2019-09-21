@@ -13,7 +13,9 @@
         <div class="container px-0">
             <div class="row m-0 ml-sm--4">
                 @include('partials.articles.sidebar')
-                <div class="col-12 col-sm-9">
+                <div class="col-12 col-sm-9 article-content">
+                    <h2>{{$article['title']}}</h2>
+                    <hr/>
                     {!! $article['body'] !!}
                 </div>
             </div>

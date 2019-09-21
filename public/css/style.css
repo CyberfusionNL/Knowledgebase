@@ -7933,3 +7933,15 @@ div.article-select svg {
 div.article-select svg.selected {
     height: 5em;
 }
+
+div.article-content ul li {
+    color: #2e2e6e;
+}
+
+.article-content h2 {
+    padding: 0 !important;
+}
+
+.article-content hr {
+    margin-top: 0 !important;
+}
