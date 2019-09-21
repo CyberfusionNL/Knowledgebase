@@ -19,7 +19,11 @@
                     {!! $article['body'] !!}
                     <div class="article-information-box align-items-center justify-content-between d-flex p-3 mb-3">
                         <span>Heeft dit artikel je geholpen?
-                            <span class="vote ml-2"><a href>Ja</a> / <a href>Nee</a></span>
+                            @if(!hasVoted($article['id']))
+                                <span class="vote ml-2"><a href="{{getVoteUrl($article)}}">Ja</a> / <a href="{{getVoteUrl($article, 'down')}}">Nee</a></span>
+                            @else
+                                <span class="vote ml-2">{{getVote($article['id']) == 'up' ? 'Ja' : 'Nee'}}</span>
+                            @endif
                         </span>
                         <span class="vote-up-arrow"></span>
                     </div>

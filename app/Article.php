@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     protected $table = 'articles';
-    protected $fillable = ['author_id', 'title', 'body', 'publish_date', 'state', 'short_summary', 'slug', 'type'];
+    protected $fillable = ['author_id', 'title', 'body', 'publish_date', 'state', 'short_summary', 'slug', 'type', 'upvotes', 'downvotes'];
     protected $appends = ['author'];
     public $timestamps = true;
 

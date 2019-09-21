@@ -58,3 +58,19 @@ function getSlugForType($category = null) {
 function getNextArticle(Article $current) {
     return $current->category->public_articles->where('id', '>', $current->id)->first();
 }
+
+function hasVoted($id) {
+    return session()->exists('voted_' . $id);
+}
+
+function getVote($id) {
+    return session()->get('voted_' . $id);
+}
+
+function getVoteUrl($article, $type = 'up') {
+    return route('article', ['type' => $article['type'], 'slug' => $article['slug'], 'vote' => $type]);
+}
+
+function vote($id, $type = 'up') {
+    session()->put('voted_' . $id, $type);
+}
