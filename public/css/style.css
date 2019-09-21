@@ -5255,6 +5255,10 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 }
 
 @media (min-width: 576px) {
+    .ml-sm--4 {
+        margin-left: -1em !important;
+    }
+
     .m-sm-0 {
         margin: 0 !important
     }

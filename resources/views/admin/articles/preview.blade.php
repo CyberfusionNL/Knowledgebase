@@ -11,9 +11,9 @@
 @section('content')
     <section>
         <div class="container px-0">
-            <div class="row">
+            <div class="row m-0 ml-sm--4">
                 @include('partials.articles.sidebar')
-                <div class="col-9">
+                <div class="col-12 col-sm-9">
                     {!! $article['body'] !!}
                 </div>
             </div>

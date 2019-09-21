@@ -1,4 +1,4 @@
-<div class="col-3 px-0">
+<div class="col-12 col-sm-3 px-0">
     @foreach(\App\Category::where('hidden', 0)->where('parent_id', 0)->where('type', request()->route()->parameter('type'))->get() as $category)
         <div class="collapse-container mb-4">
             <a class="btn sidebar-link">{{$category->name}}</a>
