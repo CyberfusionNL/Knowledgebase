@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Article;
+use App\Category;
 use App\Http\Requests\ArticleRequest;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -26,14 +28,18 @@ class ArticleController extends Controller
     public function store(ArticleRequest $request)
     {
         $validated = $request->validated();
-
+        try {
+            $category = Category::findOrFail($validated['category']);
+        } catch (ModelNotFoundException $e) {
+            return view('admin.articles.new')->withErrors([$e->getMessage()]);
+        }
         $author = auth()->user()->author;
         $article = new Article;
         $article->title = $validated['title'];
         $article->short_summary = $validated['summary'];
         $article->body = $validated['body'];
         $article->state = $validated['state'];
-        $article->type = $validated['arttype'];
+        $article->type = $category->type;
         if(!empty($validated['slug'])) {
             $article->slug = Str::slug($validated['slug']);
         } else {
@@ -51,13 +57,18 @@ class ArticleController extends Controller
     public function update(ArticleRequest $request, $id)
     {
         $validated = $request->validated();
+        try {
+            $category = Category::findOrFail($validated['category']);
+        } catch (ModelNotFoundException $e) {
+            return view('admin.articles.new')->withErrors([$e->getMessage()]);
+        }
 
         $article = Article::findOrFail($id);
         $article->title = $validated['title'];
         $article->short_summary = $validated['summary'];
         $article->body = $validated['body'];
         $article->state = $validated['state'];
-        $article->type = $validated['arttype'];
+        $article->type = $category->type;
         if(!empty($validated['slug'])) {
             $article->slug = Str::slug($validated['slug']);
         } else {

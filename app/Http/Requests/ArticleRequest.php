@@ -30,7 +30,6 @@ class ArticleRequest extends FormRequest
             'summary' => 'required|string|max:192',
             'category' => 'required|string|exists:categories,id',
             'slug' => 'nullable|max:64',
-            'arttype' => 'required|string|in:explore,learn,changes'
         ];
     }
 }
