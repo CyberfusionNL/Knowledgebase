@@ -24,7 +24,6 @@ function getCategories() {
 }
 
 function getRouteForCategory($category) {
-    //  route('article', ['type' => 'explore', 'slug' => $explore]
     $type_slugs = [
         'explore' => '',
         'learn' => '',
