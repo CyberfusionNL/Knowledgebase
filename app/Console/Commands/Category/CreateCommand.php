@@ -41,6 +41,7 @@ class CreateCommand extends Command
         $category = new Category;
         $categories = Category::all();
         $category->name = $this->ask('What should we call the category?');
+        $category->type = $this->choice('What type of category is this?', ['learn', 'explore', 'changes']);
 
         print('0. No parent' . PHP_EOL);
         foreach ($categories as $cat) {

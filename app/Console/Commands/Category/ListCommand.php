@@ -44,16 +44,18 @@ class ListCommand extends Command
             $rows[$category->id] = [
                 $category->id,
                 $category->name,
+                $category->type,
                 'Parent'
             ];
             foreach(Category::where('parent_id', $category->id)->get() as $subcategory) {
                 $rows[$subcategory->id] = [
                     $subcategory->id,
                     $subcategory->name,
+                    $subcategory->type,
                     'Child'
                 ];
             }
         }
-        $this->table(['ID', 'Name', 'Type', 'Hidden'], $rows, 'symfony-style-guide');
+        $this->table(['ID', 'Name', 'Display type', 'Type', 'Hidden'], $rows, 'symfony-style-guide');
     }
 }

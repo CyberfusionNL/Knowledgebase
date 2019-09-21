@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->integer('parent_id')->unsigned()->default(0);
+            $table->enum('type', ['learn', 'changes', 'explore']);
             $table->tinyInteger('hidden')->default(0);
         });
     }
