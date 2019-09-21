@@ -17,6 +17,12 @@
                     <h2>{{$article['title']}}</h2>
                     <hr/>
                     {!! $article['body'] !!}
+                    <div class="article-information-box align-items-center justify-content-between d-flex p-3">
+                        <span>Heeft dit artikel je geholpen?
+                            <span class="vote ml-2"><a href>Ja</a> / <a href>Nee</a></span>
+                        </span>
+                        <span class="vote-up-arrow"></span>
+                    </div>
                 </div>
             </div>
         </div>

@@ -7945,3 +7945,29 @@ div.article-content ul li {
 .article-content hr {
     margin-top: 0 !important;
 }
+
+div.article-information-box {
+    margin-top: 2em;
+    height: 4.375em;
+    background-color: #f2f2f2;
+    font-weight: 500;
+}
+
+div.article-information-box span {
+    color: #2e2e6e;
+}
+
+span.vote a, span.vote {
+    color: #ff6464 !important;
+}
+
+div.article-information-box a {
+    text-decoration: underline !important;
+}
+
+.vote-up-arrow::after {
+    font-family: 'FontAwesomePro', 'Roboto Light', sans-serif;
+    content: '\f102';
+    color: #ff6464;
+    font-size: 2em;
+}
