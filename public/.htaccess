@@ -3,6 +3,18 @@
         Options -MultiViews -Indexes
     </IfModule>
 
+    <IfModule mod_expires.c>
+      ExpiresActive On
+      ExpiresDefault A600
+      ExpiresByType image/x-icon A2592000
+      ExpiresByType application/x-javascript A604800
+      ExpiresByType text/css A604800
+      ExpiresByType image/gif A2592000
+      ExpiresByType image/png A2592000
+      ExpiresByType image/jpeg A2592000
+      ExpiresByType text/plain A86400
+    </IfModule>
+
     RewriteEngine On
 
     # Handle Authorization Header

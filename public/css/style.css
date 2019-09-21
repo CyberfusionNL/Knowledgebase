@@ -3,6 +3,7 @@
 @font-face {
     font-family: "FontAwesomePro";
     font-weight: normal;
+    font-display: swap;
     font-style: normal;
     src: url("/fonts/FontAwesome.otf") format("opentype");
 }
