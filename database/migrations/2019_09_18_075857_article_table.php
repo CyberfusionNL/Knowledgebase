@@ -19,7 +19,7 @@ class ArticleTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->string('title', 64);
             $table->string('slug', 64)->unique();
-            $table->string('short_summary', 128);
+            $table->string('short_summary', 192);
             $table->longText('body');
             $table->string('state', 9)->default('draft');
             $table->timestamp('publish_date')->nullable();
