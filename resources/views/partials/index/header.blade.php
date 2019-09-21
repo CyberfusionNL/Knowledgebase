@@ -21,7 +21,7 @@
                 <div class="box py-5">
                     <div class="row justify-content-around">
                         <div class="card col-md-3 mr-1 p-0">
-                            <div class="card-header">
+                            <div class="card-header py-1">
                                 <p>LEREN</p>
                             </div>
                             <div class="card-body justify-content-center hover-body">
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                         <div class="card col-md-3 mr-1 p-0">
-                            <div class="card-header">
+                            <div class="card-header py-1">
                                 <p>ONTDEKKEN</p>
                             </div>
                             <div class="card-body justify-content-center hover-body">
@@ -100,7 +100,7 @@
                             </div>
                         </div>
                         <div class="card col-md-3 mr-1 p-0">
-                            <div class="card-header">
+                            <div class="card-header py-1">
                                 <p>CHANGELOGS</p>
                             </div>
                             <div class="card-body justify-content-center hover-body">
