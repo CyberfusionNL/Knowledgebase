@@ -15,7 +15,7 @@ class ArticleController extends Controller
 
     public function articles()
     {
-        return view('admin.articles')->with('articles', Article::where('state', Article::PUBLISHED)->get());
+        return view('admin.articles')->with('articles', Article::all());
     }
 
     public function newArticle()
