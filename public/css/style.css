@@ -1,5 +1,12 @@
 ﻿@import url("https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700,900");
 
+@font-face {
+    font-family: "FontAwesomePro";
+    font-weight: normal;
+    font-style: normal;
+    src: url("/fonts/FontAwesome.otf") format("opentype");
+}
+
 :root {
     --color-blue: #007bff;
     --color-indigo: #6610f2;
@@ -7520,7 +7527,8 @@ a.sidebar-link {
 }
 
 div.collapse.sidebar a::after {
-    content: '►';
+    font-family: 'FontAwesomePro', 'Roboto Light', sans-serif;
+    content: '\f103';
 }
 
 div.collapse.sidebar a:hover {
@@ -7537,12 +7545,42 @@ div.collapse.sidebar a:hover {
 }
 
 .sidebar-link::after {
-    content: '►';
+    font-family: FontAwesomePro;
+    content: '\f101';
     padding-left: 15px
 }
 
 .sidebar-link.open::after {
-    content: '▼'
+    content: '\f103'
+}
+
+.sub.sidebar-link::after {
+    font-family: FontAwesomePro;
+    content: '\f101' !important;
+    padding-left: 15px
+}
+
+div.collapse.sidebar div.collapse.sidebar a {
+    color: #2e2e6e !important;
+    font-weight: 400;
+}
+
+div.collapse.sidebar div.collapse.sidebar a::after {
+    color: #2e2e6e !important;
+    font-weight: 400;
+    content: ''
+}
+
+div.collapse.sidebar div.collapse.sidebar a:hover::after {
+    color: #2e2e6e !important;
+    padding-left: 10px;
+    font-weight: 400;
+    font-family: FontAwesomePro;
+    content: '\f101' !important;
+}
+
+.sub.sidebar-link.open::after {
+    content: '\f103' !important;
 }
 
 .sidebar-link.open + .collapse {

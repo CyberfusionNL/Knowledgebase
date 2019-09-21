@@ -13,7 +13,7 @@
         <div class="container px-0">
             <div class="row">
                 @include('partials.articles.sidebar')
-                <div class="col-8">
+                <div class="col-9">
                     {!! $article['body'] !!}
                 </div>
             </div>
