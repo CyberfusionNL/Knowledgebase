@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@include('partials.admin.header')
+@include('partials.article.header')
 
 @section('content')
     <!-- header -->
