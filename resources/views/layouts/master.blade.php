@@ -7,7 +7,7 @@
     <meta name="description" content="{{ $desc ?? 'Instructies, tips en informatie over de hosting van cyberfusion' }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:description" content="{{ $desc ?? 'Instructies, tips en informatie over de hosting van cyberfusion' }}">
-    <meta name="twitter:title" content="Ideale webhosting voor webbureaus en applicaties">
+    <meta name="twitter:title" content="{{ $page ?? 'Cyberfusion Knowledgebase | Home' }}">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
     <link rel="stylesheet" type="text/css" href="/css/style.css?v=new">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
