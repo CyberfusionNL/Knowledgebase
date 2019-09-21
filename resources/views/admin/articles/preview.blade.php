@@ -17,11 +17,23 @@
                     <h2>{{$article['title']}}</h2>
                     <hr class="title-separator" />
                     {!! $article['body'] !!}
-                    <div class="article-information-box align-items-center justify-content-between d-flex p-3">
+                    <div class="article-information-box align-items-center justify-content-between d-flex p-3 mb-3">
                         <span>Heeft dit artikel je geholpen?
                             <span class="vote ml-2"><a href>Ja</a> / <a href>Nee</a></span>
                         </span>
                         <span class="vote-up-arrow"></span>
+                    </div>
+                    <div class="row">
+                        @if(!is_null($next))
+                            <div class="col-12">
+                                <ul>
+                                    <li>
+                                        <h5 class="text-uppercase mb-0">Volgend Artikel</h5>
+                                        <a href="{{route('article', ['type' => $next->type, 'slug' => $next->slug])}}" style="color: #2e2e6e">{{ $next->title }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        @endif
                     </div>
                     <hr class="article-separator" />
                     <div class="mt-5">

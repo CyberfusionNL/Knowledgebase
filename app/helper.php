@@ -1,7 +1,6 @@
 <?php
 
 use App\Article;
-use Illuminate\Support\Arr;
 
 function selected($value, $key) {
     return ($value == $key) ? 'selected' : '';
@@ -54,4 +53,8 @@ function getSlugForType($category = null) {
     if (!$category == null && in_array($category, array_keys($type_slugs))) return $type_slugs[$category];
 
     return $type_slugs;
+}
+
+function getNextArticle(Article $current) {
+    return $current->category->public_articles->where('id', '>', $current->id)->first();
 }
