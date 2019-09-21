@@ -45,10 +45,10 @@
                 </div>
                 <div class="col-md-7">
 
-                    <form class="restyle">
+                    <form class="restyle" method="get" action="{{route('article.search')}}">
                         <div class="form-group">
                             <div class="input-group-prepend"><i class="fa fa-loop"></i></div>
-                            <input type="text" placeholder="Zoek in de knowledgebase" class="form-control w-50 float-right">
+                            <input type="text" name="search" placeholder="Zoek in de knowledgebase" class="form-control w-50 float-right">
                         </div>
                     </form>
 

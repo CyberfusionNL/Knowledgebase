@@ -20,6 +20,23 @@ class ArticleController extends Controller
         return view('admin.articles')->with('articles', Article::all());
     }
 
+    public function search(Request $request)
+    {
+        $validator = Validator::make($request->only(['search']), [
+            'search' => 'required|string'
+        ]);
+
+        if($validator->fails()) return redirect()->withErrors($validator->errors());
+        $validated = $validator->validated();
+
+        $articles = Article::where('state', Article::PUBLISHED)
+            ->Where('body', 'LIKE', '%' . $validated['search'] . '%')
+            ->orWhere('title', 'LIKE', '%' . $validated['search'] .'%')
+            ->orWhere('short_summary', 'LIKE', '%' . $validated['search'] . '%')->get();
+
+        return view('articles.search', ['articles' => $articles]);
+    }
+
     public function newArticle()
     {
         return view('admin.articles.new');

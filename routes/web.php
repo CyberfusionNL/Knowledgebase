@@ -22,6 +22,7 @@ Route::prefix('/test')->group(function () {
 });
 
 Route::get('/article/{type}/{slug}', 'ArticleController@show')->name('article');
+Route::get('/search', 'Admin\ArticleController@search')->name('article.search');
 
 Route::prefix('/admin')->group(function () {
     Route::get('/login', 'Auth\LoginController@showLoginForm')->name('admin.login');
