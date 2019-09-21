@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     protected $table = 'articles';
-    protected $fillable = ['author_id', 'title', 'body', 'publish_date', 'state', 'short_summary', 'slug'];
+    protected $fillable = ['author_id', 'title', 'body', 'publish_date', 'state', 'short_summary', 'slug', 'type'];
     protected $appends = ['author'];
     public $timestamps = true;
 
@@ -32,7 +32,7 @@ class Article extends Model
 
     public function author()
     {
-        return $this->hasOne('App\Author');
+        return $this->belongsTo('App\Author');
     }
 
     public function category()

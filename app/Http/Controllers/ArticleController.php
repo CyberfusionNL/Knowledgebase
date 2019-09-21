@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function show($slug)
+    public function show($type, $slug)
     {
-        return view('admin.articles.preview')->with('article', Article::where('slug', $slug)->firstOrFail()->toArray());
+        return view('admin.articles.preview')->with('article', Article::where('slug', $slug)->where('type', $type)->firstOrFail()->toArray());
     }
 }

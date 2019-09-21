@@ -13,9 +13,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', 'HomeController@home')->name('home');
 
 Route::prefix('/test')->group(function () {
     Route::get('/info', function () {
@@ -23,7 +21,7 @@ Route::prefix('/test')->group(function () {
     });
 });
 
-Route::get('/article/{slug}', 'ArticleController@show')->name('article');
+Route::get('/article/{type}/{slug}', 'ArticleController@show')->name('article');
 
 Route::prefix('/admin')->group(function () {
     Route::get('/login', 'Auth\LoginController@showLoginForm')->name('admin.login');

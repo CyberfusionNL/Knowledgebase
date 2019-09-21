@@ -11,7 +11,11 @@
                             <div class="collapse sidebar">
                                 <ul>
                                     @foreach($subcategory->public_articles as $item)
-                                        <li style="list-style-image: none; list-style-type: disc; color:#2e2e6e;font-size: .8em"><a href="">{{$item->title}}</a></li>
+                                        @if(request()->routeIs('admin.preview_article'))
+                                        <li style="list-style-image: none; list-style-type: disc; color:#2e2e6e;font-size: .8em"><a href="{{route('admin.preview_article', ['id' => $item->id])}}">{{$item->title}}</a></li>
+                                        @else
+                                            <li style="list-style-image: none; list-style-type: disc; color:#2e2e6e;font-size: .8em"><a href="{{route('article', ['type' => $item->type, 'slug' => $item->slug])}}">{{$item->title}}</a></li>
+                                        @endif
                                     @endforeach
                                 </ul>
                             </div>

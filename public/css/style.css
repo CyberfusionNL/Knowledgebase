@@ -7917,3 +7917,14 @@ div.hover-body {
 div.hover-body:hover {
     border: 1px solid #2e2e6e !important;
 }
+
+div.article-select svg {
+    height: 5em;
+    background-color: #ffffff;
+    border: 1px #2e2e6e solid;
+    transition: all 1s ease-out;
+}
+
+div.article-select svg.selected {
+    height: 5em;
+}

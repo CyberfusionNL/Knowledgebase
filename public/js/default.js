@@ -74,6 +74,12 @@
             });
         });
 
+        $(document).ready(function() {
+            $(".article-select label svg").click(function () {
+                console.log('hoi')
+            })
+        });
+
         // init
         paralax();
 

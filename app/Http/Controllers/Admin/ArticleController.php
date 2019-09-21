@@ -33,6 +33,7 @@ class ArticleController extends Controller
         $article->short_summary = $validated['summary'];
         $article->body = $validated['body'];
         $article->state = $validated['state'];
+        $article->type = $validated['arttype'];
         if(!empty($validated['slug'])) {
             $article->slug = Str::slug($validated['slug']);
         } else {
@@ -56,6 +57,7 @@ class ArticleController extends Controller
         $article->short_summary = $validated['summary'];
         $article->body = $validated['body'];
         $article->state = $validated['state'];
+        $article->type = $validated['arttype'];
         if(!empty($validated['slug'])) {
             $article->slug = Str::slug($validated['slug']);
         } else {
