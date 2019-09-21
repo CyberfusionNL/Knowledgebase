@@ -14,25 +14,10 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 })->name('home');
 
 Route::prefix('/test')->group(function () {
-    Route::get('/home', function () {
-        return view('home');
-    });
-    Route::get('/article', function () {
-        return view('article');
-    });
-
-    Route::get('/login', function () {
-        return view('admin.login');
-    });
-
-    Route::get('/twofactor', function () {
-        return view('admin.twofactor');
-    });
-
     Route::get('/info', function () {
         return phpinfo();
     });
