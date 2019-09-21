@@ -7859,3 +7859,22 @@ ul.purple-bullet li {
     color: #2e2e6e;
     list-style-image: none;
 }
+
+
+
+.hover-body a {
+    color: #2e2e6e !important;
+}
+
+.hover-body a:hover {
+    color: #ffffff !important;
+}
+
+div.hover-body {
+    border: none !important;
+    transition: border-color 1s ease-in;
+}
+
+div.hover-body:hover {
+    border: 1px solid #2e2e6e !important;
+}
