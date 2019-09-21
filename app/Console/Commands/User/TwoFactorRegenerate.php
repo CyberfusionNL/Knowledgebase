@@ -19,7 +19,7 @@ class TwoFactorRegenerate extends Command
      *
      * @var string
      */
-    protected $description = 'Create user for knowledgebase';
+    protected $description = 'Regenerate Twofactor code for user';
 
     /**
      * Create a new command instance.
