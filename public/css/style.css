@@ -8010,6 +8010,9 @@ div.article-content .card {
 }
 
 @media (min-width: 576px) {
+    footer.kb div#footer-container {
+        height: 14em
+    }
     span.logo-sub {
         margin-left: -2em;
         margin-bottom:-.625em;
@@ -8018,6 +8021,9 @@ div.article-content .card {
 }
 
 @media (min-width: 768px) {
+    footer.kb div#footer-container {
+        height: 6em
+    }
     span.logo-sub {
         margin-left: .25em;
         margin-bottom:-.625em;
@@ -8026,6 +8032,9 @@ div.article-content .card {
 }
 
 @media (min-width: 992px) {
+    footer.kb div#footer-container {
+        height: 12em
+    }
     span.logo-sub {
         margin-left: .25em;
         margin-bottom:-.625em;
@@ -8039,4 +8048,8 @@ div.article-content .card {
         margin-bottom:-.625em;
     }
 
+}
+
+footer.kb div#footer-container {
+    background-color: #2e2e6e;
 }
