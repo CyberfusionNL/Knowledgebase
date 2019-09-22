@@ -13,7 +13,7 @@
                     vinden wat je zoekt.</p>
             </div>
             <div class="col-md-5 d-flex align-self-end">
-                <img src="/img/intro-man.png" alt="Cyberfusion" class="full pb-0"/>
+                <img src="/img/intro-man.webp" alt="Cyberfusion" class="full pb-0"/>
             </div>
         </div>
         <div class="row">
