@@ -10,13 +10,13 @@ function hasTwofactor(\App\User $user) {
     return $user->twofactor_secret !== '';
 }
 
-function getCategories() {
+function getCategories($col = 2) {
     $current = request()->route()->parameter('type');
     $types = ['explore', 'learn', 'changes'];
     $arr = [];
     foreach($types as $type) {
         if ($type !== $current) {
-            $arr[] = $type;
+            $arr[] = $col . '-column.' .$type;
         }
     }
     return $arr;
@@ -28,8 +28,6 @@ function getRouteForCategory($category) {
         'learn' => '',
         'changes' =>''
     ];
-    $type = request()->route()->parameter('type');
-    if(!in_array($type, array_keys($type_slugs))) return '';
     return route('article', ['slug' => getSlugForType($category), 'type' => $category]);
 }
 

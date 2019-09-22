@@ -12,7 +12,7 @@
     <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
     <link rel="stylesheet" type="text/css" href="/css/style.css?v=new">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
-    <script type="text/javascript" src="https://quriobot.com/qb/widget/A7VaDrlxxOrB6xgO/wj0M8mVR7LmRW4qY" async defer></script>
+{{--    <script type="text/javascript" src="https://quriobot.com/qb/widget/A7VaDrlxxOrB6xgO/wj0M8mVR7LmRW4qY" async defer></script>--}}
 </head>
 <body>
 

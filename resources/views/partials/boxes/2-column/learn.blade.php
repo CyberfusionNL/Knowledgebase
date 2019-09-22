@@ -1,6 +1,6 @@
 <div class="card col-12 col-md-5 mr-5 p-0">
-    <div class="card-header py-1">
-        <p>LEREN</p>
+    <div class="card-header py-2">
+        <p class="my-auto">LEREN</p>
     </div>
     <div class="card-body justify-content-center hover-body">
         <div class="d-flex justify-content-center">
