@@ -84,6 +84,7 @@
                     <a href="{{route('admin.new_article')}}" class="btn btn-block float-right">Nieuw artikel</a>
                 </div>
             </div>
+            <hr />
             @foreach($articles as $article)
                 <div class="row mb-3">
                     <div class="col-12">
@@ -91,9 +92,16 @@
                             <a target="_blank" href="{{route('admin.preview_article', ['id' => $article['id']])}}"><h5>{{$article['title']}}</h5></a>
                             <span>{{ $article['short_summary'] }}</span>
                         </div>
-                        <a class="btn btn-block float-right" href="{{ route('admin.article', ['id' => $article['id']]) }}">Bewerken</a>
+                        <div class="float-right">
+                            <form method="post" class="d-block" action="{{route('admin.delete_article', ['id' => $article['id']])}}">
+                                {{csrf_field()}}
+                                <button type="submit" class="btn btn-block">Verwijderen</button>
+                            </form>
+                            <a class="btn btn-block mt-0" href="{{ route('admin.article', ['id' => $article['id']]) }}">Bewerken</a>
+                        </div>
                     </div>
                 </div>
+                <hr />
             @endforeach
         </div>
     </section>

@@ -20,6 +20,12 @@ class ArticleController extends Controller
         return view('admin.articles')->with('articles', Article::all());
     }
 
+    public function delete(Request $request, $id)
+    {
+        Article::find($id)->delete();
+        return redirect()->route('admin.articles');
+    }
+
     public function search(Request $request)
     {
         $validator = Validator::make($request->only(['search']), [

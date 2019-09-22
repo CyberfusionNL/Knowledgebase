@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property string title
@@ -15,6 +16,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Article extends Model
 {
+
+    use SoftDeletes;
+
     protected $table = 'articles';
     protected $fillable = ['author_id', 'title', 'body', 'publish_date', 'state', 'short_summary', 'slug', 'type', 'upvotes', 'downvotes'];
     protected $appends = ['author'];

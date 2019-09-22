@@ -35,6 +35,7 @@ Route::prefix('/admin')->group(function () {
         Route::post('/articles/new', 'Admin\ArticleController@store')->name('admin.new_article');
         Route::get('/article/{id}', 'Admin\ArticleController@article')->name('admin.article');
         Route::post('/article/{id}', 'Admin\ArticleController@update');
+        Route::post('/articles/delete/{id}', 'Admin\ArticleController@delete')->name('admin.delete_article');
         Route::get('/preview/{id}', 'Admin\ArticleController@preview')->name('admin.preview_article');
     });
 });
