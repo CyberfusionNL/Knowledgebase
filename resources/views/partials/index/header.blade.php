@@ -12,7 +12,7 @@
                 <p>Kies een categorie om door de kennisbank te bladeren of gebruik het zoekveld hierboven om direct te
                     vinden wat je zoekt.</p>
             </div>
-            <div class="col-md-5 d-flex align-items-end">
+            <div class="col-md-5 d-flex align-self-end">
                 <img src="/img/intro-man.png" alt="Cyberfusion" class="full pb-0"/>
             </div>
         </div>
