@@ -1,7 +1,6 @@
 <section class="jumbotron-fluid restyle intro box grid red d-flex align-items-center py-4">
     <div class="container-fluid">
         <div class="background"></div>
-
         <div class="row align-items-center justify-content-center">
             <div class="col-md-5 mx-2">
                 @yield('title')

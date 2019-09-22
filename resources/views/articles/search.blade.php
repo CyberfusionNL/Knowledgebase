@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('header')
-    @include('partials.articles.header')
-@endsection
-
 @section('content')
     <!-- header -->
     <section class="jumbotron-fluid restyle form grid red d-flex align-items-center" style="background-position: center 0px;">
