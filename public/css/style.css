@@ -7925,6 +7925,7 @@ div.hover-body:hover {
 
 div.article-select svg {
     height: 5em;
+    padding: 5px;
     background-color: #ffffff;
     border: 1px #2e2e6e solid;
     transition: all 1s ease-out;
@@ -7993,7 +7994,30 @@ div.article-content .card .card-header p {
     text-align: center;
 }
 
-div.article-content .card p {
+/** Categories */
+#categories .card .card-header {
+    border-radius: 0;
+}
+
+#categories .card .card-header {
+    background-color: #2e2e6e;
+    padding: 2px;
+}
+
+#categories .card .card-body {
+    border: 1px solid #2e2e6e;
+}
+
+#categories .card .card-header p {
+    text-align: center;
+}
+
+
+div.article-content ul li {
+    color: #2e2e6e;
+}
+
+#categories .card p {
     font-size: 16px !important;
     font-weight: 600 !important;
     line-height: 16px;
@@ -8001,12 +8025,24 @@ div.article-content .card p {
     margin: 0;
 }
 
-div.article-content .card {
+#categories .card {
     background-color: #f5f5f8;
     width: 100%;
     border-radius: 0 !important;
     border: 0 !important;
     margin-bottom: 15px;
+}
+
+#categories svg {
+    height: 5em;
+    background-color: #ffffff;
+    border: 1px #2e2e6e solid;
+    padding: 5px;
+    transition: all 1s ease-out;
+}
+
+#categories svg.selected {
+    height: 5em;
 }
 
 @media (min-width: 576px) {
