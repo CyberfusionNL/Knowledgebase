@@ -1,5 +1,5 @@
 <!-- restyle : intro -->
-<section class="jumbotron-fluid restyle intro box grid red d-flex align-items-center pb-0">
+<section class="jumbotron-fluid restyle intro box grid red d-flex align-items-center py-0">
     <div class="container-fluid">
     <div class="background"></div>
 
