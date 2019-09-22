@@ -1,11 +1,11 @@
 <section class="jumbotron-fluid restyle intro box grid red d-flex align-items-center py-4">
     <div class="container-fluid">
         <div class="background"></div>
-        <div class="row align-items-center justify-content-center">
-            <div class="col-md-5 mx-2">
+        <div class="row align-items-center justify-content-center text-lg-left text-center">
+            <div class="col-md-5">
                 @yield('title')
             </div>
-            <div class="col-md-5 d-flex justify-content-end">
+            <div class="col-md-5 d-flex justify-content-lg-end justify-content-center">
                 @if(request()->route()->parameter('type') == 'learn')
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.21 34.31"><title>Leren</title>
                     <g id="Layer_2" data-name="Layer 2">
