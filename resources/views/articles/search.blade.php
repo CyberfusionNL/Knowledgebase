@@ -98,6 +98,7 @@
                     </div>
                 </div>
             @endforeach
+            <hr />
             <div class="row" id="categories">
                 <div class="col-md-12 p-0">
                     <div class="box py-5">
