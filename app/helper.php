@@ -72,3 +72,15 @@ function getVoteUrl($article, $type = 'up') {
 function vote($id, $type = 'up') {
     session()->put('voted_' . $id, $type);
 }
+
+function isActive($article, $category = null) {
+    if($category->id == $article['category_id']) {
+        return true;
+    } else {
+        $article = Article::find($article['id']);
+        if($article->category->parent->id == $category->id) {
+            return true;
+        }
+    }
+    return false;
+}

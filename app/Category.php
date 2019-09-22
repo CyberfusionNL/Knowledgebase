@@ -19,4 +19,9 @@ class Category extends Model
     {
         return $this->articles()->where('state', Article::PUBLISHED);
     }
+
+    public function parent()
+    {
+        return $this->hasOne('App\Category','id', 'parent_id');
+    }
 }
