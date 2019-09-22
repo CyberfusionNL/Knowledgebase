@@ -25,7 +25,7 @@
                     <a href="/" class="logo">
                         <svg id="logo-ls" data-name="logo ls" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 238 33">
                             <defs>
-                                <clipPath id="clip-path" transform="translate(0 0)">
+                                <clipPath transform="translate(0 0)">
                                     <rect width="238" height="33" style="fill:none"></rect>
                                 </clipPath>
                             </defs>
