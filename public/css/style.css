@@ -7971,6 +7971,10 @@ div.article-information-box a {
     font-size: 2em;
 }
 
+.vote-up-arrow:hover::after {
+    cursor: pointer;
+}
+
 .article-content hr.article-separator {
     border-top: 2px solid #2e2e6e;
 }

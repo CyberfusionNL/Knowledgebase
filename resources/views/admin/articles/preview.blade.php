@@ -53,3 +53,13 @@
         </div>
     </section>
 @endsection
+
+@section('custom-scripts')
+    <script>
+        $(document).ready(function () {
+            $('span.vote-up-arrow').after().click(function () {
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+            })
+        });
+    </script>
+@endsection

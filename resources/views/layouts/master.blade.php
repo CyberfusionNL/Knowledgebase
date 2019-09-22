@@ -67,5 +67,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="/js/default.js?v=new"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/js/fontawesome.min.js"></script>
+
+    @yield('custom-scripts')
 </body>
 </html>
