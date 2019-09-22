@@ -11,4 +11,9 @@ class DashboardController extends Controller
     {
         return view('admin.dashboard');
     }
+
+    public function access()
+    {
+        return 'access requests not yet implemented, please contact support@cyberfusion.nl.';
+    }
 }

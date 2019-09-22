@@ -14,27 +14,16 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@home')->name('home');
-
-Route::prefix('/test')->group(function () {
-    Route::get('/info', function () {
-        return phpinfo();
-    });
-});
-
 Route::get('/article/{type}/{slug}', 'ArticleController@show')->name('article');
 Route::get('/search', 'Admin\ArticleController@search')->name('article.search');
 
 Route::prefix('/admin')->group(function () {
     Route::get('/login', 'Auth\LoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\LoginController@login');
-    Route::post('/2fa', function () {
-        return redirect(URL()->previous());
-    })->name('2fa')->middleware('2fa');
+    Route::post('/2fa', 'Auth\LoginController@twofactor')->name('2fa')->middleware('2fa');
     Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
     Route::post('/lock', 'Auth\LoginController@lock')->name('lock');
-    Route::get('/access', function () {
-        return 'access requests not yet implemented, please contact support@cyberfusion.nl.';
-    })->name('admin.request_access');
+    Route::get('/access', 'Admin\DashboardController@access')->name('admin.request_access');
 
     Route::group(['middleware' => ['auth', '2fa']], function () {
         Route::get('/', 'Admin\DashboardController@dashboard');

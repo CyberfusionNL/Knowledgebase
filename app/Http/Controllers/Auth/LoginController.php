@@ -42,6 +42,16 @@ class LoginController extends Controller
     }
 
     /**
+     * Redirect twofactor requests
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function twofactor()
+    {
+        return redirect(URL()->previous());
+    }
+
+    /**
      * Get the login username to be used by the controller.
      *
      * @return string
