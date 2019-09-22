@@ -52,36 +52,37 @@
     </div>
     <div class="container">
         <div class="row d-flex align-items-center">
-            <div class="col-md-4">
-                <p>Cyberfusion &copy; 2019 <a href="//cyberfusion.nl/algemenevoorwaarden" target="_blank">Algemene
-                        voorwaarden</a></p>
+            <div class="col-md-12 col-lg-4">
+                <p>Cyberfusion &copy; 2019
+                    <a href="//cyberfusion.nl/algemenevoorwaarden" target="_blank">Algemene voorwaarden</a>
+                </p>
             </div>
-            <div class="col-md-4 justify-content-end">
+            <div class="col-md-12 col-lg-4 justify-content-lg-end">
                 <div class="row d-flex align-items-center">
-                    <div class="col-md-3 text-right">
+                    <div class="col-sm-3 text-right d-none d-sm-block">
                         <p>Lid van:</p>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                         <a href="https://nlnog.net/"><img src="/img/lid-nlnog.png" alt="Stichting NLNOG"/></a>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                         <a href="https://www.ripe.net/"><img src="/img/lid-ripe.png" alt="RIPE"/></a>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                         <a href="https://www.ispconnect.nl/"><img src="/img/lid-ispconnect.png" alt="ISPConnect"/></a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 justify-content-end">
+            <div class="col-md-12 col-lg-4 justify-content-sm-start justify-content-lg-end">
                 <div class="row d-flex align-items-center">
-                    <div class="col-md-3 text-right">
+                    <div class="col-sm-4 text-right d-none d-sm-block">
                         <p>Like ons:</p>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-4">
                         <a href="https://www.linkedin.com/company/cyberfusion/"><img src="/img/linkedin_icon.png"
                                                                                      alt="LinkedIn"/></a>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-4">
                         <a href="https://twitter.com/CyberfusionNL"><img src="/img/twitter_icon.png" alt="Twitter"/></a>
                     </div>
                 </div>
