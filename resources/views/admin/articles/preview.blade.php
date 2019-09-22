@@ -44,7 +44,7 @@
                         <h5 style="color: #2e2e6e">Kies een andere categorie:</h5>
                     </div>
                     <div class="row ml-0">
-                        @foreach(getCategories() as $cat)
+                        @foreach(getCategories(3) as $cat)
                             @include('partials.boxes.' . $cat)
                         @endforeach
                     </div>
