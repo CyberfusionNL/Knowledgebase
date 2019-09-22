@@ -6632,7 +6632,7 @@ header #logo-ls, footer #logo-ls {
 
 @media (max-width: 767.99px) {
     header #logo-ls, footer #logo-ls {
-        width: 40%
+        /*width: 40%*/
     }
 }
 
@@ -8007,4 +8007,36 @@ div.article-content .card {
     border-radius: 0 !important;
     border: 0 !important;
     margin-bottom: 15px;
+}
+
+@media (min-width: 576px) {
+    span.logo-sub {
+        margin-left: -2em;
+        margin-bottom:-.625em;
+    }
+
+}
+
+@media (min-width: 768px) {
+    span.logo-sub {
+        margin-left: .25em;
+        margin-bottom:-.625em;
+    }
+
+}
+
+@media (min-width: 992px) {
+    span.logo-sub {
+        margin-left: .25em;
+        margin-bottom:-.625em;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    span.logo-sub {
+        margin-left: -2.50em;
+        margin-bottom:-.625em;
+    }
+
 }

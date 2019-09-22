@@ -20,7 +20,7 @@
     <header class="row no-gutters d-flex align-items-center">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-5 d-flex align-items-center">
+                <div class="col-md-7 d-flex align-items-center">
 
                     <a href="/" class="logo">
                         <svg id="logo-ls" data-name="logo ls" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 238 33">
@@ -40,15 +40,15 @@
                             <polygon points="10.86 25.93 21.21 19.96 16.54 17.26 6.18 23.23 10.86 25.93" style="fill:#00dada"></polygon>
                         </svg>
                     </a>
-                    <span style="color:#ff6464;margin-left: -2em;margin-bottom:-.625em"><strong>KNOWLEDGEBASE</strong></span>
+                    <span class="d-none d-md-block logo-sub" style="color:#ff6464;"><strong>KNOWLEDGEBASE</strong></span>
 
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-4 offset-md-1 d-none d-md-block">
 
                     <form class="restyle" method="get" action="{{route('article.search')}}">
                         <div class="form-group">
                             <div class="input-group-prepend"><i class="fa fa-loop"></i></div>
-                            <input type="text" name="search" placeholder="Zoek in de knowledgebase" class="form-control w-50 float-right">
+                            <input type="text" name="search" placeholder="Zoek in de knowledgebase" class="form-control w-100">
                         </div>
                     </form>
 
