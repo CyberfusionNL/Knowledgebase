@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands\User;
 
+use App\Author;
 use App\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
@@ -53,6 +54,13 @@ class CreateCommand extends Command
         if($this->confirm('Are you sure to create this user?')) {
             $user->save();
             $this->alert("User '$user->name' created!");
+            $author = new Author;
+            $author->user_id = $user->id;
+            $author->name = $this->ask('First name');
+            $author->surname = $this->ask('Surname');
+            $author->organisation = $this->ask('For what firm does he work?');
+            $author->save();
+            $this->alert('Author settings have been initialized');
         } else {
             $this->alert('User has not been created.');
         }
