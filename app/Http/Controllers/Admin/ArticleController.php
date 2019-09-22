@@ -26,7 +26,7 @@ class ArticleController extends Controller
             'search' => 'required|string'
         ]);
 
-        if($validator->fails()) return redirect()->withErrors($validator->errors());
+        if($validator->fails()) return redirect(url()->previous())->withErrors($validator->errors());
         $validated = $validator->validated();
 
         $articles = Article::where('state', Article::PUBLISHED)
