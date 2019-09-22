@@ -1,9 +1,12 @@
 {
-    "name": "laravel/laravel",
+    "name": "cyberfusionnl/knowledgebase",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Cyberfusion Knowledgease.",
+    "homepage": "https://github.com/cyberfusionnl/knowledgebase",
     "keywords": [
-        "framework",
+        "cyberfusion",
+        "knowledgebase",
+        "search",
         "laravel"
     ],
     "license": "MIT",
