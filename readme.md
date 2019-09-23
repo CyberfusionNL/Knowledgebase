@@ -51,22 +51,10 @@ DB_HOST=<database-host>
 DB_DATABASE=<database-name>
 DB_USERNAME=<database-user>
 DB_PASSWORD=<db-user-pass>
+APP_THEME=<theme-or-default>
 ```
 
 ### Finish installation
 ```bash
-php artisan migrate
-```
-
-# Setup for load balancing 
-## Environment
-```dotenv
-SESSION_DRIVER=# Set this to 'database' if you are loadbalancing the knowledgebase else use the 'file' driver
-...
-```
-
-## Application
-```bash
-php artisan session:table
 php artisan migrate
 ```
