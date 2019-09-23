@@ -42,6 +42,7 @@ class CreateCommand extends Command
     {
         $user = new User;
         $user->name = $this->ask('Username');
+        $user->twofactor_secret = '';
         $user->email = $this->ask('E-Mail Address');
         $password = $this->secret('Password');
         if(strlen($password) > 8) {
