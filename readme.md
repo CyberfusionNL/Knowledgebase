@@ -20,13 +20,14 @@ Please feel free to contribute to this project, it will help us and others.
 
 ## Install / update production
 ```bash
-git clone  git@vcs.cyberfusion.nl:developers/cfkb-laravel.git /var/www/vhosts/cyberfusionkb/kb.cyberfusion.nl/htdocs
-cd /var/www/vhosts/cyberfusionkb/kb.cyberfusion.nl/htdocs
+git clone git@github.com:CyberfusionNL/Knowledgebase.git /path/to/docroot
+cd /path/to/docroot
 composer install
 ```
 
 ### Modify .env
 ```dotenv
+APP_NAME= # optional
 DB_HOST=<database-host>
 DB_DATABASE=<database-name>
 DB_USERNAME=<database-user>
@@ -40,8 +41,8 @@ php artisan migrate
 
 ## Install dev
 ```bash
-git clone  git@vcs.cyberfusion.nl:developers/cfkb-laravel.git
-cd cfkb-laravel/
+git clone git@github.com:CyberfusionNL/Knowledgebase.git
+cd Knowledgebase/
 composer install
 ```
 
