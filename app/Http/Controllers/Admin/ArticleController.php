@@ -4,17 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Article;
 use App\Category;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
-
     public function articles()
     {
         return view('admin.articles')->with('articles', Article::all());
@@ -23,22 +22,25 @@ class ArticleController extends Controller
     public function delete(Request $request, $id)
     {
         Article::find($id)->delete();
+
         return redirect()->route('admin.articles');
     }
 
     public function search(Request $request)
     {
         $validator = Validator::make($request->only(['search']), [
-            'search' => 'required|string'
+            'search' => 'required|string',
         ]);
 
-        if($validator->fails()) return redirect(url()->previous())->withErrors($validator->errors());
+        if ($validator->fails()) {
+            return redirect(url()->previous())->withErrors($validator->errors());
+        }
         $validated = $validator->validated();
 
         $articles = Article::where('state', Article::PUBLISHED)
-            ->Where('body', 'LIKE', '%' . $validated['search'] . '%')
-            ->orWhere('title', 'LIKE', '%' . $validated['search'] .'%')
-            ->orWhere('short_summary', 'LIKE', '%' . $validated['search'] . '%')->get();
+            ->Where('body', 'LIKE', '%'.$validated['search'].'%')
+            ->orWhere('title', 'LIKE', '%'.$validated['search'].'%')
+            ->orWhere('short_summary', 'LIKE', '%'.$validated['search'].'%')->get();
 
         return view('articles.search', ['articles' => $articles]);
     }
@@ -63,7 +65,7 @@ class ArticleController extends Controller
         $article->body = $validated['body'];
         $article->state = $validated['state'];
         $article->type = $category->type;
-        if(!empty($validated['slug'])) {
+        if (! empty($validated['slug'])) {
             $article->slug = Str::slug($validated['slug']);
         } else {
             $article->slug = Str::slug($article->title);
@@ -74,6 +76,7 @@ class ArticleController extends Controller
             $article->publish_date = Carbon::now()->toDateTimeString();
         }
         $article->save();
+
         return redirect()->route('admin.articles');
     }
 
@@ -92,7 +95,7 @@ class ArticleController extends Controller
         $article->body = $validated['body'];
         $article->state = $validated['state'];
         $article->type = $category->type;
-        if(!empty($validated['slug'])) {
+        if (! empty($validated['slug'])) {
             $article->slug = Str::slug($validated['slug']);
         } else {
             $article->slug = Str::slug($article->title);
@@ -102,6 +105,7 @@ class ArticleController extends Controller
             $article->publish_date = Carbon::now()->toDateTimeString();
         }
         $article->save();
+
         return redirect()->route('admin.articles');
     }
 
@@ -113,6 +117,7 @@ class ArticleController extends Controller
     public function preview($id)
     {
         $article = Article::findOrFail($id);
+
         return view('admin.articles.preview')
             ->with('article', $article->toArray())
             ->with('next', getNextArticle($article));

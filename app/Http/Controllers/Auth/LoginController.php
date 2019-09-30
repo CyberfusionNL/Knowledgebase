@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use PragmaRX\Google2FALaravel\Support\Authenticator;
 use PragmaRX\Google2FALaravel\Google2FA;
+use PragmaRX\Google2FALaravel\Support\Authenticator;
 
 class LoginController extends Controller
 {
@@ -42,7 +42,7 @@ class LoginController extends Controller
     }
 
     /**
-     * Redirect twofactor requests
+     * Redirect twofactor requests.
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
@@ -72,7 +72,7 @@ class LoginController extends Controller
     }
 
     /**
-     * Show twofactor form
+     * Show twofactor form.
      *
      * @return View
      */

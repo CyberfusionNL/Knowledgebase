@@ -11,12 +11,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string state
  * @property string publish_date
  * @property string short_summary
- * @property integer author_id
+ * @property int author_id
  * @property string slug
  */
 class Article extends Model
 {
-
     use SoftDeletes;
 
     protected $table = 'articles';
@@ -43,5 +42,4 @@ class Article extends Model
     {
         return $this->belongsTo('App\Category');
     }
-
 }

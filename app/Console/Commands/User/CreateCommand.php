@@ -45,14 +45,15 @@ class CreateCommand extends Command
         $user->twofactor_secret = '';
         $user->email = $this->ask('E-Mail Address');
         $password = $this->secret('Password');
-        if(strlen($password) > 8) {
+        if (strlen($password) > 8) {
             $user->password = Hash::make($password);
             unset($password);
         } else {
             $this->error('Password too short, aborting...');
+
             return;
         }
-        if($this->confirm('Are you sure to create this user?')) {
+        if ($this->confirm('Are you sure to create this user?')) {
             $user->save();
             $this->alert("User '$user->name' created!");
             $author = new Author;
