@@ -38,7 +38,6 @@ class TwoFactorDisable extends Command
      */
     public function handle()
     {
-
         $users = [];
         foreach (User::all() as $user) {
             $users[$user->id] = $user->name;
@@ -46,17 +45,20 @@ class TwoFactorDisable extends Command
 
         $username = $this->choice('Which user?', $users);
         $user = User::where('name', $username)->first();
-        if (!$user) {
+        if (! $user) {
             // show an error and exist if the user does not exist
             $this->error("User with username '$username' not found.");
+
             return;
         }
 
         // Print a warning
-        $this->info('Twofactor will be disabled for ' . $user->name);
+        $this->info('Twofactor will be disabled for '.$user->name);
 
         // ask for confirmation if not forced
-        if (!$this->option('force') && !$this->confirm('Do you wish to continue?')) return;
+        if (! $this->option('force') && ! $this->confirm('Do you wish to continue?')) {
+            return;
+        }
 
         // generate a new secret key for the user
         $user->twofactor_secret = '';
@@ -65,6 +67,6 @@ class TwoFactorDisable extends Command
         $user->save();
 
         // show the new secret key
-        $this->alert('Twofactor has been disabled for ' . $user->name);
+        $this->alert('Twofactor has been disabled for '.$user->name);
     }
 }

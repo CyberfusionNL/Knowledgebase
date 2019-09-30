@@ -43,13 +43,12 @@ class CreateCommand extends Command
         $category->name = $this->ask('What should we call the category?');
         $category->type = $this->choice('What type of category is this?', ['learn', 'explore', 'changes']);
 
-        print('0. No parent' . PHP_EOL);
+        echo '0. No parent'.PHP_EOL;
         foreach ($categories as $cat) {
-            print($cat->id . '. ' . $cat->name . PHP_EOL);
+            echo $cat->id.'. '.$cat->name.PHP_EOL;
         }
-        print(PHP_EOL);
+        echo PHP_EOL;
         $category->parent_id = $this->ask('Choose the parent category');
         $category->save();
-
     }
 }

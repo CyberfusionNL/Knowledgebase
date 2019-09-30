@@ -13,56 +13,56 @@ return [
 
     'themes_path' => base_path('resources/themes'),
 
-	/*
-	|--------------------------------------------------------------------------
-	| Set behavior if an asset is not found in a Theme hierarchy.
-	| Available options: THROW_EXCEPTION | LOG_ERROR | IGNORE
-	|--------------------------------------------------------------------------
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Set behavior if an asset is not found in a Theme hierarchy.
+    | Available options: THROW_EXCEPTION | LOG_ERROR | IGNORE
+    |--------------------------------------------------------------------------
+    */
 
-	'asset_not_found' => 'LOG_ERROR',
+    'asset_not_found' => 'LOG_ERROR',
 
-	/*
-	|--------------------------------------------------------------------------
-	| Do we want a theme activated by default? Can be set at runtime with:
-	| Theme::set('theme-name');
-	|--------------------------------------------------------------------------
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Do we want a theme activated by default? Can be set at runtime with:
+    | Theme::set('theme-name');
+    |--------------------------------------------------------------------------
+    */
 
-	'default' => env('APP_THEME', 'default'),
+    'default' => env('APP_THEME', 'default'),
 
-	/*
-	|--------------------------------------------------------------------------
-	| Cache theme.json configuration files that are located in each theme's folder
-	| in order to avoid searching theme settings in the filesystem for each request
-	|--------------------------------------------------------------------------
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Cache theme.json configuration files that are located in each theme's folder
+    | in order to avoid searching theme settings in the filesystem for each request
+    |--------------------------------------------------------------------------
+    */
 
-	'cache' => false,
+    'cache' => false,
 
-	/*
-	|--------------------------------------------------------------------------
-	| Define available themes. Format:
-	|
-	| 	'theme-name' => [
-	| 		'extends'	 	=> 'theme-to-extend',  // optional
-	| 		'views-path' 	=> 'path-to-views',    // defaults to: resources/views/theme-name
-	| 		'asset-path' 	=> 'path-to-assets',   // defaults to: public/theme-name
-	|
-	|		// You can add your own custom keys
-	|		// Use Theme::getSetting('key') & Theme::setSetting('key', 'value') to access them
-	| 		'key' 			=> 'value',
-	| 	],
-	|
-	|--------------------------------------------------------------------------
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Define available themes. Format:
+    |
+    | 	'theme-name' => [
+    | 		'extends'	 	=> 'theme-to-extend',  // optional
+    | 		'views-path' 	=> 'path-to-views',    // defaults to: resources/views/theme-name
+    | 		'asset-path' 	=> 'path-to-assets',   // defaults to: public/theme-name
+    |
+    |		// You can add your own custom keys
+    |		// Use Theme::getSetting('key') & Theme::setSetting('key', 'value') to access them
+    | 		'key' 			=> 'value',
+    | 	],
+    |
+    |--------------------------------------------------------------------------
+    */
 
-	'themes' => [
-	    'default' => [
-	        'extends' => null,
+    'themes' => [
+        'default' => [
+            'extends' => null,
             'views-path' => 'default',
-            'asset-path' => 'themes/default'
-        ]
-	],
+            'asset-path' => 'themes/default',
+        ],
+    ],
 
 ];

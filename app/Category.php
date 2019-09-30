@@ -11,7 +11,8 @@ class Category extends Model
 
     protected $table = 'categories';
 
-    public function articles() {
+    public function articles()
+    {
         return $this->hasMany('App\Article');
     }
 
@@ -22,6 +23,6 @@ class Category extends Model
 
     public function parent()
     {
-        return $this->hasOne('App\Category','id', 'parent_id');
+        return $this->hasOne('App\Category', 'id', 'parent_id');
     }
 }
