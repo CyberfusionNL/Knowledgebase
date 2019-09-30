@@ -22,7 +22,7 @@ Please feel free to contribute to this project, it will help us and others.
 ```bash
 git clone git@github.com:CyberfusionNL/Knowledgebase.git /path/to/docroot
 cd /path/to/docroot
-composer install
+composer install --no-dev
 ```
 
 ### Modify .env
