@@ -45,14 +45,14 @@ class ListCommand extends Command
                 $category->id,
                 $category->name,
                 $category->type,
-                'Parent'
+                'Parent',
             ];
-            foreach(Category::where('parent_id', $category->id)->get() as $subcategory) {
+            foreach (Category::where('parent_id', $category->id)->get() as $subcategory) {
                 $rows[$subcategory->id] = [
                     $subcategory->id,
                     $subcategory->name,
                     $subcategory->type,
-                    'Child'
+                    'Child',
                 ];
             }
         }

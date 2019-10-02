@@ -40,7 +40,7 @@ class DeleteCommand extends Command
     public function handle()
     {
         $categories = Category::all(['id', 'name']);
-        $catIds = [];// Map this in the future
+        $catIds = []; // Map this in the future
         foreach ($categories as $cat) {
             $catIds[$cat->id] = $cat->name;
         }
@@ -50,6 +50,7 @@ class DeleteCommand extends Command
             Category::where('name', $choice)->delete();
         } catch (QueryException $e) {
             $this->alert("Category '$choice' couldn't be deleted. It is still linked to a post.");
+
             return;
         }
         $this->alert("Category '$choice' has been deleted");

@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class MakeRelations extends Migration
 {
@@ -25,7 +25,6 @@ class MakeRelations extends Migration
 //        Schema::table('categories', function (Blueprint $table) {
 //            $table->foreign('parent_id')->references('id')->on('categories');
 //        });
-
     }
 
     /**
@@ -43,8 +42,6 @@ class MakeRelations extends Migration
         Schema::table('authors', function (Blueprint $table) {
             $table->dropForeign('authors_user_id_foreign');
         });
-
-
 
 //        Schema::table('categories', function (Blueprint $table) {
 //            $table->dropForeign('categories_parent_id_foreign');

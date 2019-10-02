@@ -12,15 +12,15 @@ class ArticleController extends Controller
     {
         $article = Article::where('slug', $slug)->where('type', $type)->firstOrFail();
         $validator = Validator::make($request->only(['vote']), [
-            'vote' => 'string|in:up,down'
+            'vote' => 'string|in:up,down',
         ]);
 
         $validated = $validator->validated();
-        if (!hasVoted($article->id) && $validated) {
-            if($validated['vote'] == 'up') {
+        if (! hasVoted($article->id) && $validated) {
+            if ($validated['vote'] == 'up') {
                 $article->upvotes++;
                 vote($article->id);
-            } elseif($validated['vote'] == 'down') {
+            } elseif ($validated['vote'] == 'down') {
                 $article->downvotes++;
                 vote($article->id, 'down');
             }

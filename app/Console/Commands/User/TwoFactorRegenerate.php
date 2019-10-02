@@ -38,7 +38,6 @@ class TwoFactorRegenerate extends Command
      */
     public function handle()
     {
-
         $users = [];
         foreach (User::all() as $user) {
             $users[$user->id] = $user->name;
@@ -46,18 +45,21 @@ class TwoFactorRegenerate extends Command
 
         $username = $this->choice('Which user?', $users);
         $user = User::where('name', $username)->first();
-        if (!$user) {
+        if (! $user) {
             // show an error and exist if the user does not exist
             $this->error("User with username '$username' not found.");
+
             return;
         }
 
         // Print a warning
-        $this->info('A new secret will be generated for ' . $user->name);
+        $this->info('A new secret will be generated for '.$user->name);
         $this->info('This action will invalidate the previous secret key.');
 
         // ask for confirmation if not forced
-        if (!$this->option('force') && !$this->confirm('Do you wish to continue?')) return;
+        if (! $this->option('force') && ! $this->confirm('Do you wish to continue?')) {
+            return;
+        }
 
         // initialise the 2FA class
         $google2fa = app('pragmarx.google2fa');
@@ -69,7 +71,7 @@ class TwoFactorRegenerate extends Command
         $user->save();
 
         // show the new secret key
-        $this->info('A new secret has been generated for ' . $user->name);
-        $this->info('The new secret is: ' . $user->twofactor_secret);
+        $this->info('A new secret has been generated for '.$user->name);
+        $this->info('The new secret is: '.$user->twofactor_secret);
     }
 }

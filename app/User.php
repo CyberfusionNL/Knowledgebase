@@ -41,14 +41,15 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes default to values
+     * The attributes default to values.
      * @var array
      */
     protected $attributes = [
-        'twofactor_secret' => ''
+        'twofactor_secret' => '',
     ];
 
-    public function author() {
+    public function author()
+    {
         return $this->hasOne('App\Author');
     }
 
