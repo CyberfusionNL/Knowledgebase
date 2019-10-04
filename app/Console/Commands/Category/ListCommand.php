@@ -38,7 +38,7 @@ class ListCommand extends Command
      */
     public function handle()
     {
-        $categories = Category::where('parent_id', 0)->get();
+        $categories = Category::where('parent_id', 0)->get()->sortBy('type')->sortBy('id');
         $rows = [];
         foreach ($categories as $category) {
             $rows[$category->id] = [
