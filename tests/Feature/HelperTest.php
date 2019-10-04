@@ -14,8 +14,9 @@ class HelperTest extends TestCase
      */
     public function testSelected()
     {
-        $this->assertTrue(selected('formkey', 'formkey'));
-        $this->assertFalse(selected('formkey', 'other-formkey'));
+        $this->assertSame('selected', selected('formkey', 'formkey'));
+        $this->assertNotSame('selected', selected('formkey', 'formke'));
+        $this->assertSame('', selected('formkey', 'other-formkey'));
     }
 
     /**
