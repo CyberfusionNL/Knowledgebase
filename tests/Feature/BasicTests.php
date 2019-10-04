@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class BasicTests extends TestCase
 {
     /**
      * Test home page
@@ -22,6 +22,10 @@ class ExampleTest extends TestCase
         $response->assertSeeText('Find everything you need to now');
     }
 
+    /**
+     * Test article slugs
+     * @return void
+     */
     public function testSlugs()
     {
         $article = Article::get()->random();
