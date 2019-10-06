@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Seeder;
+use App\Article;
+use App\Author;
 use App\Category;
 use App\User;
-use App\Author;
-use App\Article;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
