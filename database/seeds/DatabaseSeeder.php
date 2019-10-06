@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Category;
 use App\User;
 use App\Author;
+use App\Article;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,17 +15,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(Category::class)->create([
+        $category_1 = factory(Category::class)->create([
             'name' => 'Category 1'
         ]);
 
-        factory(User::class)->create([
+        $user_1 = factory(User::class)->create([
             'name'  => 'john',
             'email' => 'john@example.com'
-        ])->author()
-          ->save(factory(Author::class)->make([
-              'name'    => 'John',
-              'surname' => 'Doe'
-          ]));
+        ]);
+        
+        $author_1 = factory(Author::class)->make([
+            'name'    => 'John',
+            'surname' => 'Doe'
+        ]);
+
+        $user_1->author()->save($author_1);
+
+        factory(Article::class)->create([
+            'author_id'   => $author_1->id,
+            'category_id' => $category_1->id
+        ]);
     }
 }
