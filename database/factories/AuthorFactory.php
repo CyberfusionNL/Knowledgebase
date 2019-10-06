@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 $factory->define(Author::class, function (Faker $faker) {
     return [
         'name' => $faker->firstName,
-        'surname' => $faker->lastName,
-        'user_id' => 1
+        'surname' => $faker->lastName
     ];
 });
