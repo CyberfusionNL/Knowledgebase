@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use App\Category;
+use App\User;
+use App\Author;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,8 +14,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Category::class)->create([
+        factory(Category::class)->create([
             'name' => 'Category 1'
         ]);
+
+        factory(User::class)->create([
+            'name'  => 'john',
+            'email' => 'john@example.com'
+        ])->author()
+          ->save(factory(Author::class)->make([
+              'name'    => 'John',
+              'surname' => 'Doe'
+          ]));
     }
 }
