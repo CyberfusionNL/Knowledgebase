@@ -11,6 +11,6 @@ $factory->define(Article::class, function (Faker $faker) {
         'title' => $title,
         'slug'=>Str::slug($title),
         'short_summary' => $faker->paragraph,
-        'body' => $faker->text
+        'body' => $faker->text,
     ];
 });
