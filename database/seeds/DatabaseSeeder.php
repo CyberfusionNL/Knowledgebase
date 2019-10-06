@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'name'  => 'john',
             'email' => 'john@example.com',
         ]);
-        
+
         $author_1 = factory(Author::class)->make([
             'name'    => 'John',
             'surname' => 'Doe',
