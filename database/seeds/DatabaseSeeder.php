@@ -27,15 +27,15 @@ class DatabaseSeeder extends Seeder
 
         $user->author()->save($author);
 
-        collect(['learn', 'explore', 'changes'])->each(function($item, $key) use($author) {
+        collect(['learn', 'explore', 'changes'])->each(function ($item, $key) use($author) {
             $category = factory(Category::class)->create([
-                'name' => 'Category ' . $key,
+                'name' => 'Category '.$key,
                 'type' => $item,
             ]);
 
             $child_category = factory(Category::class)->create([
                 'parent_id' => $category->id,
-                'name' => 'Category ' . $key . ' 1',
+                'name' => 'Category '.$key.' 1',
                 'type' => $item,
             ]);
 
