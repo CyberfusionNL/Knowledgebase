@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
 
         $user->author()->save($author);
 
-        collect(['learn', 'explore', 'changes'])->each(function ($item, $key) use($author) {
+        collect(['learn', 'explore', 'changes'])->each(function ($item, $key) use ($author) {
             $category = factory(Category::class)->create([
                 'name' => 'Category '.$key,
                 'type' => $item,
