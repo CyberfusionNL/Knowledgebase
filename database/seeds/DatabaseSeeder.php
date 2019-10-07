@@ -15,25 +15,34 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $category_1 = factory(Category::class)->create([
-            'name' => 'Category 1',
-        ]);
-
-        $user_1 = factory(User::class)->create([
+        $user = factory(User::class)->create([
             'name'  => 'john',
             'email' => 'john@example.com',
         ]);
 
-        $author_1 = factory(Author::class)->make([
+        $author = factory(Author::class)->make([
             'name'    => 'John',
             'surname' => 'Doe',
         ]);
 
-        $user_1->author()->save($author_1);
+        $user->author()->save($author);
 
-        factory(Article::class)->create([
-            'author_id'   => $author_1->id,
-            'category_id' => $category_1->id,
-        ]);
+        collect(['learn', 'explore', 'changes'])->each(function($item, $key) use($author) {
+            $category = factory(Category::class)->create([
+                'name' => 'Category ' . $key,
+                'type' => $item,
+            ]);
+
+            $child_category = factory(Category::class)->create([
+                'parent_id' => $category->id,
+                'name' => 'Category ' . $key . ' 1',
+                'type' => $item,
+            ]);
+
+            factory(Article::class)->create([
+                'author_id'   => $author->id,
+                'category_id' => $child_category->id,
+            ]);
+        });
     }
 }

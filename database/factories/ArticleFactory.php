@@ -10,8 +10,8 @@ $factory->define(Article::class, function (Faker $faker) {
 
     return [
         'title' => $title,
-        'slug'=>Str::slug($title),
-        'short_summary' => $faker->paragraph,
+        'slug' =>Str::slug($title),
+        'short_summary' => substr($faker->paragraph, 0, 192),
         'body' => $faker->text,
     ];
 });
