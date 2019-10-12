@@ -1,16 +1,22 @@
+dist: bionic
+
 language: php
 
 php:
   - 7.2
-  - 7.3
 
-sudo: false
+addons:
+  mariadb: "10.2"
 
-install:
-  - travis_retry composer install --no-interaction
+cache:
+  directories:
+    - vendor
 
-script:
-  - vendor/bin/phpunit --coverage-clover clover.xml
+before_script:
+  - cp .env.travis .env
+  - sudo mysql -e 'CREATE DATABASE testing;'
+  - composer self-update
+  - composer install --no-interaction
+  - php artisan migrate --no-interaction -vvv
 
-after_script:
-- bash <(curl -s https://codecov.io/bash)
+script: vendor/bin/phpunit
