@@ -1,4 +1,4 @@
-# Cyberfusion Knowledgebase
+# Cyberfusion Knowledgebase[![Build Status](https://travis-ci.org/namelivia/Knowledgebase.svg?branch=master)](https://travis-ci.org/namelivia/Knowledgebase) [![codecov](https://codecov.io/gh/namelivia/Knowledgebase/branch/master/graph/badge.svg)](https://codecov.io/gh/namelivia/Knowledgebase)
 
 This knowledgebase is used, built and maintained by Cyberfusion.
 
