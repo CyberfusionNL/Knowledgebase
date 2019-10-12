@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 $factory->define(Category::class, function (Faker $faker) {
     return [
-        'name' => 'Category name',
+        'name' => $faker->word(),
         'type' => 'learn',
     ];
 });
