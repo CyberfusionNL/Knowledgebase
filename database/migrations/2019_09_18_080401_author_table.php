@@ -19,7 +19,7 @@ class AuthorTable extends Migration
             $table->string('name', '32');
             $table->string('surname', '32');
             $table->string('organisation', '32')->nullable();
-            $table->text('bio')->default('I am a writer.');
+            $table->text('bio')->nullable();
         });
     }
 
