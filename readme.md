@@ -39,6 +39,11 @@ DB_PASSWORD=<db-user-pass>
 php artisan migrate
 ```
 
+### Create user
+```bash
+php artisan cf:user:create
+```
+
 ## Install dev
 ```bash
 git clone git@github.com:CyberfusionNL/Knowledgebase.git
@@ -58,4 +63,9 @@ APP_THEME=<theme-or-default>
 ### Finish installation
 ```bash
 php artisan migrate
+```
+
+### Create user
+```bash
+php artisan cf:user:create
 ```
