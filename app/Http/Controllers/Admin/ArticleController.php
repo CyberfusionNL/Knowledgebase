@@ -3,16 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Article;
-use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {

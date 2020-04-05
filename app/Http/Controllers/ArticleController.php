@@ -16,15 +16,9 @@ class ArticleController extends Controller
         ]);
 
         $validated = $validator->validated();
-        if (! hasVoted($article->id) && $validated) {
-            if ($validated['vote'] == 'up') {
-                $article->upvotes++;
-                vote($article->id);
-            } elseif ($validated['vote'] == 'down') {
-                $article->downvotes++;
-                vote($article->id, 'down');
-            }
-            $article->save();
+        if (! hasVoted($article->id)) {
+            $article->increment(sprintf('%svotes',  $validated['vote']));
+            vote($article->id);
         }
 
         return view('admin.articles.preview')
