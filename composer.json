@@ -12,6 +12,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "ext-imagick": "*",
+        "ext-json": "*",
         "bacon/bacon-qr-code": "^2.0",
         "fideloper/proxy": "^4.0",
         "igaster/laravel-theme": "^2.0",
