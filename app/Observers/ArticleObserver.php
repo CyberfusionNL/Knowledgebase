@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Article;
-use App\Author;
+use App\Models\Article;
+use App\Models\Author;
 use Carbon\Carbon;
 
 class ArticleObserver
@@ -11,10 +11,12 @@ class ArticleObserver
     public function creating(Article $article)
     {
         $user = auth()->user();
-        if ($user !== null) {
-            $article->author_id = $user->author->id;
-        } else {
-            $article->author_id = Author::first()->id;
+        if ($article->author_id === null || empty($article->author_id)) {
+            if ($user !== null) {
+                $article->author_id = $user->author->id;
+            } else {
+                $article->author_id = Author::first()->id;
+            }
         }
 
         if ($article->slug === null || empty($article->slug)) {
