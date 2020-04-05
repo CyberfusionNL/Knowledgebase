@@ -18,6 +18,11 @@ Features include:
 ## Contributing
 Please feel free to contribute to this project, it will help us and others.
 
+## Creating a user
+```bash
+php artisan cf:user:create
+```
+
 ## Install / update production
 ```bash
 git clone git@github.com:CyberfusionNL/Knowledgebase.git /path/to/docroot
@@ -39,11 +44,6 @@ DB_PASSWORD=<db-user-pass>
 php artisan migrate
 ```
 
-### Create user
-```bash
-php artisan cf:user:create
-```
-
 ## Install dev
 ```bash
 git clone git@github.com:CyberfusionNL/Knowledgebase.git
@@ -63,9 +63,4 @@ APP_THEME=<theme-or-default>
 ### Finish installation
 ```bash
 php artisan migrate
-```
-
-### Create user
-```bash
-php artisan cf:user:create
 ```
