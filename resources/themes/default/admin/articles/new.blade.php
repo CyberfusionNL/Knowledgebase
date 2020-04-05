@@ -115,7 +115,8 @@
         CKEDITOR.replace('body', {
             language: 'en',
             format_tags: 'p;h1;h2;h3;h4;h5;h6;pre;address;div',
-            filebrowserUploadUrl: '{{ route('admin.upload') }}'
+            filebrowserUploadUrl: '{{ route('admin.upload') }}',
+            filebrowserBrowseUrl: '{{ route('admin.browse.images') }}'
         });
     </script>
 @endsection
