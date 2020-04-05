@@ -31,7 +31,7 @@ class Article extends Model
         'type',
         'upvotes',
         'downvotes',
-        'category_id'
+        'category_id',
     ];
 
     public $timestamps = true;
@@ -52,7 +52,7 @@ class Article extends Model
     }
 
     /**
-     * Mutate slug attribute
+     * Mutate slug attribute.
      *
      * @param string|null $slug
      */
