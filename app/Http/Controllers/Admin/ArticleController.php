@@ -156,4 +156,20 @@ class ArticleController extends Controller
             ];
         }
     }
+
+    public function browseImages(Request $request, $page = 1)
+    {
+        if ($page < 1) {
+            $page = 1;
+        }
+        $perPage = 16;
+        $images = Storage::allFiles('uploads/images');
+
+        $images = array_chunk($images, $perPage);
+        $imageList = array_map(function ($value) {
+            return last(explode('/', $value));
+        }, $images[$page - 1]);
+
+        return view('admin.browse.images', ['images' => $imageList]);
+    }
 }
