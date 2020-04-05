@@ -13,6 +13,7 @@ class AssetController extends Controller
         if (Storage::exists($imagePath)) {
             return response(Storage::get($imagePath))->header('Content-Type', 'image/jpeg');
         }
+
         return response(null, 404);
     }
 }

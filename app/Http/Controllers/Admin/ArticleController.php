@@ -133,26 +133,26 @@ class ArticleController extends Controller
             return [
                 'uploaded' => (int) 0,
                 'error' => (object) [
-                    'message' => 'File already exists...'
-                ]
+                    'message' => 'File already exists...',
+                ],
             ];
         }
 
         $file->storeAs('uploads/images', $orignalName);
-        $maxSize = 1000000*16; // Max 16 mb
+        $maxSize = 1000000 * 16; // Max 16 mb
 
         if ($file->getSize() > $maxSize) {
             return [
                 'uploaded' => (int) 0,
                 'error' => (object) [
-                    'message' => 'File is greater than 16 Megabytes'
-                ]
+                    'message' => 'File is greater than 16 Megabytes',
+                ],
             ];
         } else {
             return [
                 'uploaded' => (int) 1,
                 'fileName' => $file->getClientOriginalName(),
-                'url' => route('asset.image', $file->getClientOriginalName())
+                'url' => route('asset.image', $file->getClientOriginalName()),
             ];
         }
     }
