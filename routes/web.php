@@ -23,11 +23,11 @@ Route::prefix('/admin')->group(function () {
     Route::post('/2fa', 'Auth\LoginController@twofactor')->name('2fa')->middleware('2fa');
     Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
     Route::post('/lock', 'Auth\LoginController@lock')->name('lock');
-    Route::get('/access', 'DashboardController@access')->name('admin.request_access');
 
     Route::group(['middleware' => ['auth', '2fa'], 'namespace' => 'Admin'], function () {
         Route::get('/', 'DashboardController@dashboard');
         Route::get('/dashboard', 'DashboardController@dashboard')->name('admin.dashboard');
+        Route::get('/access', 'DashboardController@access')->name('admin.request_access');
         Route::get('/settings', 'SettingsController@settings')->name('admin.settings');
 
         Route::group(['prefix' => 'articles'], function () {
@@ -55,5 +55,4 @@ Route::prefix('/admin')->group(function () {
 
 Route::group(['prefix' => 'assets'], function () {
     Route::get('/images/{image}', 'AssetController@getImage')->name('asset.image');
-
 });
