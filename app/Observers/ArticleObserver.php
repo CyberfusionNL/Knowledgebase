@@ -27,4 +27,12 @@ class ArticleObserver
             $article->publish_date = Carbon::now()->toDateTimeString();
         }
     }
+
+    public function updating(Article $article)
+    {
+        $old = Article::find($article->getKey());
+        if ($old->state !== Article::PUBLISHED && $article->state === Article::PUBLISHED) {
+            $article->publish_date = Carbon::now()->toDateTimeString();
+        }
+    }
 }

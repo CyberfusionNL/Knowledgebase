@@ -33,6 +33,9 @@ class Article extends Model
         'downvotes',
         'category_id',
     ];
+    protected $dates = [
+        'publish_date',
+    ];
 
     public $timestamps = true;
 
