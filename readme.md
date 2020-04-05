@@ -18,7 +18,13 @@ Features include:
 ## Contributing
 Please feel free to contribute to this project, it will help us and others.
 
-## Creating a user
+## Logging in to the knowledgebase
+
+### Default user after seeding
+Username: `cyberfusion`
+Password: `password`
+
+### Creating a user
 ```bash
 php artisan cf:user:create
 ```

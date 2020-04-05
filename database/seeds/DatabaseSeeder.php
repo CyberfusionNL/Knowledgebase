@@ -5,6 +5,7 @@ use App\Models\Author;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,8 +17,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $user = factory(User::class)->create([
-            'name'  => 'john',
-            'email' => 'john@example.com',
+            'name'  => 'Cyberfusion',
+            'email' => 'support@cyberfusion.nl',
+
         ]);
 
         $author = factory(Author::class)->make([
