@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Article;
+use App\Models\Article;
 use App\Observers\ArticleObserver;
 use Illuminate\Support\ServiceProvider;
 

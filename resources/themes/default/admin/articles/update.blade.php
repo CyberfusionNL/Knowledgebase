@@ -68,9 +68,9 @@
                                 <div class="form-group">
                                     <label for="category"><h5>Categorie</h5></label>
                                     <select name="category_id" id="category" class="form-control">
-                                        @foreach(\App\Category::where('parent_id', 0)->where('hidden', 0)->get() as $parent)
+                                        @foreach(\App\Models\Category::where('parent_id', 0)->where('hidden', 0)->get() as $parent)
                                             <optgroup label="{{$parent->name}} ({{$parent->type}})">
-                                                @foreach(\App\Category::where('parent_id', $parent->id)->where('hidden', 0)->get() as $category)
+                                                @foreach(\App\Models\Category::where('parent_id', $parent->id)->where('hidden', 0)->get() as $category)
                                                     <option value="{{$category->id}}">{{$category->name}}</option>
                                                 @endforeach
                                             </optgroup>

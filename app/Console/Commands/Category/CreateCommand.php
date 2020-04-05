@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands\Category;
 
-use App\Category;
+use App\Models\Category;
 use Illuminate\Console\Command;
 
 class CreateCommand extends Command

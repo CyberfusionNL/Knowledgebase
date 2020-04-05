@@ -1,10 +1,10 @@
 <div class="col-12 col-sm-3 px-0">
-    @foreach(\App\Category::where('hidden', 0)->where('parent_id', 0)->where('type', request()->route()->parameter('type'))->get() as $category)
+    @foreach(\App\Models\Category::where('hidden', 0)->where('parent_id', 0)->where('type', request()->route()->parameter('type'))->get() as $category)
         <div class="collapse-container mb-4">
             <a class="btn sidebar-link">{{$category->name}}</a>
             <div class="sidebar">
                 <ul class="pl-0">
-                    @foreach(\App\Category::where('hidden', 0)->where('parent_id', $category->id)->where('type', request()->route()->parameter('type'))->get() as $subcategory)
+                    @foreach(\App\Models\Category::where('hidden', 0)->where('parent_id', $category->id)->where('type', request()->route()->parameter('type'))->get() as $subcategory)
                         <li style="list-style-type: none" class="ml-3">
                             <a class="btn collapse sub sidebar-link d-inline-block pb-2">{{$subcategory->name}}</a>
                             <div class="sidebar">

@@ -2,8 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Article;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Models\Article;
 use Illuminate\Support\Str;
 use Tests\TestCase;
 

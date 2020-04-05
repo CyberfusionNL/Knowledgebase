@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Category;
-use App\Article;
+use App\Models\Category;
+use App\Models\Article;
 use Tests\TestCase;
 
 class CategoryTest extends TestCase
