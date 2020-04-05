@@ -13,3 +13,4 @@ yarn-error.log
 /.idea
 .gitmodules
 .DS_STORE
+composer.lock
