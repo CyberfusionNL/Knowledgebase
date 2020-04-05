@@ -24,7 +24,7 @@ class AuthorTest extends TestCase
     {
         $this->assertEquals(
             $this->user->id,
-            $this->author->user->first()->id
+            $this->author->user->id
         );
     }
 
@@ -32,7 +32,7 @@ class AuthorTest extends TestCase
     {
         $this->assertEquals(
             $this->user->id,
-            $this->author->getUserAttribute()->first()->id
+            $this->author->user->id
         );
     }
 }

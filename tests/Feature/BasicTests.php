@@ -18,7 +18,7 @@ class BasicTests extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
-        $response->assertSeeText('Find everything you need to now');
+        $response->assertSeeText('Find everything you need to know');
     }
 
     /**

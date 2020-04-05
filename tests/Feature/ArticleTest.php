@@ -36,7 +36,7 @@ class ArticleTest extends TestCase
     {
         $this->assertEquals(
             $this->author->id,
-            $this->article->author->first()->id
+            $this->article->author->id
         );
     }
 
@@ -44,7 +44,7 @@ class ArticleTest extends TestCase
     {
         $this->assertEquals(
             $this->category->id,
-            $this->article->category()->first()->id
+            $this->article->category->id
         );
     }
 }

@@ -11,11 +11,6 @@ class Author extends Model
     protected $appends = ['user'];
     public $timestamps = false;
 
-    public function getUserAttribute()
-    {
-        return $this->user();
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);
