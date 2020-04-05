@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 /**
  * @property string title
@@ -19,19 +20,26 @@ class Article extends Model
     use SoftDeletes;
 
     protected $table = 'articles';
-    protected $fillable = ['author_id', 'title', 'body', 'publish_date', 'state', 'short_summary', 'slug', 'type', 'upvotes', 'downvotes'];
-    protected $appends = ['author'];
+    protected $fillable = [
+        'author_id',
+        'title',
+        'body',
+        'publish_date',
+        'state',
+        'short_summary',
+        'slug',
+        'type',
+        'upvotes',
+        'downvotes',
+        'category_id'
+    ];
+
     public $timestamps = true;
 
     public const PUBLISHED = 'published';
     public const DRAFT = 'draft';
     public const PLANNED = 'planned';
     public const REVIEW = 'review';
-
-    public function getAuthorAttribute()
-    {
-        return $this->author();
-    }
 
     public function author()
     {
@@ -41,5 +49,15 @@ class Article extends Model
     public function category()
     {
         return $this->belongsTo('App\Category');
+    }
+
+    /**
+     * Mutate slug attribute
+     *
+     * @param string|null $slug
+     */
+    public function setSlugAttribute(?string $slug)
+    {
+        $this->attributes['slug'] = Str::slug($slug);
     }
 }

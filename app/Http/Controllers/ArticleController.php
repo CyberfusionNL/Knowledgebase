@@ -33,4 +33,23 @@ class ArticleController extends Controller
             ->with('next', getNextArticle($article))
             ->with('article', $article->toArray());
     }
+
+    public function search(Request $request)
+    {
+        $validator = Validator::make($request->only(['search']), [
+            'search' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect(url()->previous())->withErrors($validator->errors());
+        }
+        $validated = $validator->validated();
+
+        $articles = Article::where('state', Article::PUBLISHED)
+            ->Where('body', 'LIKE', '%'.$validated['search'].'%')
+            ->orWhere('title', 'LIKE', '%'.$validated['search'].'%')
+            ->orWhere('short_summary', 'LIKE', '%'.$validated['search'].'%')->get();
+
+        return view('articles.search', ['articles' => $articles]);
+    }
 }
