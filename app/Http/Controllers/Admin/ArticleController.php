@@ -9,6 +9,7 @@ use App\Http\Requests\ArticleRequest;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -121,5 +122,38 @@ class ArticleController extends Controller
         return view('admin.articles.preview')
             ->with('article', $article->toArray())
             ->with('next', getNextArticle($article));
+    }
+
+    public function image(Request $request)
+    {
+        $file = $request->file('upload');
+
+        $orignalName = $file->getClientOriginalName();
+        if (Storage::exists(sprintf('uploads/images/%s', $orignalName))) {
+            return [
+                'uploaded' => (int) 0,
+                'error' => (object) [
+                    'message' => 'File already exists...'
+                ]
+            ];
+        }
+
+        $file->storeAs('uploads/images', $orignalName);
+        $maxSize = 1000000*16; // Max 16 mb
+
+        if ($file->getSize() > $maxSize) {
+            return [
+                'uploaded' => (int) 0,
+                'error' => (object) [
+                    'message' => 'File is greater than 16 Megabytes'
+                ]
+            ];
+        } else {
+            return [
+                'uploaded' => (int) 1,
+                'fileName' => $file->getClientOriginalName(),
+                'url' => route('asset.image', $file->getClientOriginalName())
+            ];
+        }
     }
 }

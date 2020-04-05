@@ -30,12 +30,23 @@ Route::prefix('/admin')->group(function () {
         Route::get('/dashboard', 'Admin\DashboardController@dashboard')->name('admin.dashboard');
         Route::get('/settings', 'Admin\SettingsController@settings')->name('admin.settings');
 
-        Route::get('/articles', 'Admin\ArticleController@articles')->name('admin.articles');
-        Route::get('/articles/new', 'Admin\ArticleController@newArticle')->name('admin.new_article');
-        Route::post('/articles/new', 'Admin\ArticleController@store')->name('admin.new_article');
-        Route::get('/article/{id}', 'Admin\ArticleController@article')->name('admin.article');
-        Route::post('/article/{id}', 'Admin\ArticleController@update');
-        Route::post('/articles/delete/{id}', 'Admin\ArticleController@delete')->name('admin.delete_article');
+        Route::group(['prefix' => 'articles'], function () {
+            Route::get('/', 'Admin\ArticleController@articles')->name('admin.articles');
+            Route::get('/new', 'Admin\ArticleController@newArticle')->name('admin.new_article');
+            Route::post('/new', 'Admin\ArticleController@store')->name('admin.new_article');
+            Route::post('/upload', 'Admin\ArticleController@image')->name('admin.upload');
+        });
+
+        Route::group(['prefix' => 'article'], function () {
+            Route::get('/{id}', 'Admin\ArticleController@article')->name('admin.article');
+            Route::post('/{id}', 'Admin\ArticleController@update');
+            Route::post('/delete/{id}', 'Admin\ArticleController@delete')->name('admin.delete_article');
+        });
+
         Route::get('/preview/{id}', 'Admin\ArticleController@preview')->name('admin.preview_article');
     });
+});
+
+Route::group(['prefix' => 'assets'], function () {
+    Route::get('/images/{image}', 'AssetController@getImage')->name('asset.image');
 });
