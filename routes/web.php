@@ -50,7 +50,6 @@ Route::prefix('/admin')->group(function () {
             Route::post('/{article}', 'ArticleController@update');
             Route::post('/delete/{article}', 'ArticleController@delete')->name('admin.delete_article');
         });
-
     });
 });
 
