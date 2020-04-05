@@ -49,7 +49,6 @@ class ArticleController extends Controller
 
     public function preview(Article $article)
     {
-
         return view('admin.articles.preview')
             ->with('article', $article->toArray())
             ->with('next', getNextArticle($article));

@@ -17,7 +17,7 @@ class ArticleController extends Controller
 
         $validated = $validator->validated();
         if (! hasVoted($article->id)) {
-            $article->increment(sprintf('%svotes',  $validated['vote']));
+            $article->increment(sprintf('%svotes', $validated['vote']));
             vote($article->id);
         }
 
