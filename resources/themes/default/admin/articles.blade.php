@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-8"></div>
                 <div class="col-4">
-                    <a href="{{route('admin.new_article')}}" class="btn btn-outline-primary float-roght">Nieuw artikel</a>
+                    <a href="{{route('admin.new_article')}}" class="btn btn-outline-primary float-right">Nieuw artikel</a>
                 </div>
             </div>
             <hr />
@@ -30,15 +30,15 @@
                 <div class="row mb-3">
                     <div class="col-12">
                         <div class="float-left">
-                            <a target="_blank" href="{{route('admin.preview_article', ['id' => $article['id']])}}"><h5>{{$article['title']}}</h5></a>
+                            <a target="_blank" href="{{route('admin.preview_article', compact('article'))}}"><h5>{{$article['title']}}</h5></a>
                             <span>{{ $article['short_summary'] }}</span>
                         </div>
                         <div class="float-right">
-                            <form method="post" class="d-block" action="{{route('admin.delete_article', ['id' => $article['id']])}}">
+                            <form method="post" class="d-block" action="{{route('admin.delete_article', compact('article'))}}">
                                 {{csrf_field()}}
                                 <button type="submit" class="btn btn-outline-primary">Verwijderen</button>
                             </form>
-                            <a class="btn btn-outline-primary mt-1" href="{{ route('admin.article', ['id' => $article['id']]) }}">Bewerken</a>
+                            <a class="btn btn-outline-primary mt-1" href="{{ route('admin.article', compact('article')) }}">Bewerken</a>
                         </div>
                     </div>
                 </div>

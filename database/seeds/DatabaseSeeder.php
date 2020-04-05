@@ -1,9 +1,9 @@
 <?php
 
-use App\Article;
-use App\Author;
-use App\Category;
-use App\User;
+use App\Models\Article;
+use App\Models\Author;
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

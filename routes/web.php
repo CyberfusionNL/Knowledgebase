@@ -43,13 +43,14 @@ Route::prefix('/admin')->group(function () {
             });
         });
 
+        Route::get('/preview/{article}', 'ArticleController@preview')->name('admin.preview_article');
+
         Route::group(['prefix' => 'article'], function () {
-            Route::get('/{id}', 'ArticleController@article')->name('admin.article');
-            Route::post('/{id}', 'ArticleController@update');
-            Route::post('/delete/{id}', 'ArticleController@delete')->name('admin.delete_article');
+            Route::get('/{article}', 'ArticleController@article')->name('admin.article');
+            Route::post('/{article}', 'ArticleController@update');
+            Route::post('/delete/{article}', 'ArticleController@delete')->name('admin.delete_article');
         });
 
-        Route::get('/preview/{id}', 'ArticleController@preview')->name('admin.preview_article');
     });
 });
 

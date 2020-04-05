@@ -52,16 +52,16 @@
                             <div class="col-12 col-md-8">
                                 <div class="form-group">
                                     <label for="summary"><h5>Korte samenvatting</h5></label>
-                                    <input class="form-control" maxlength="128" type="text" name="summary" id="summary" value="{{ old('summary') }}">
+                                    <input class="form-control" maxlength="128" type="text" name="short_summary" id="summary" value="{{ old('short_summary') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label for="category"><h5>Categorie</h5></label>
-                                    <select name="category" id="category" class="form-control">
-                                        @foreach(\App\Category::where('parent_id', 0)->where('hidden', 0)->get() as $parent)
+                                    <select name="category_id" id="category" class="form-control">
+                                        @foreach(\App\Models\Category::where('parent_id', 0)->where('hidden', 0)->get() as $parent)
                                             <optgroup label="{{$parent->name}} ({{$parent->type}})">
-                                                @foreach(\App\Category::where('parent_id', $parent->id)->where('hidden', 0)->get() as $category)
+                                                @foreach(\App\Models\Category::where('parent_id', $parent->id)->where('hidden', 0)->get() as $category)
                                                     <option value="{{$category->id}}">{{$category->name}}</option>
                                                 @endforeach
                                             </optgroup>

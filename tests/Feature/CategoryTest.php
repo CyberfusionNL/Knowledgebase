@@ -2,13 +2,16 @@
 
 namespace Tests\Feature;
 
-use App\Category;
-use App\Article;
+use App\Models\Category;
+use App\Models\Article;
 use Tests\TestCase;
 
 class CategoryTest extends TestCase
 {
+    /** @var Category  */
     private $category;
+
+    /** @var Category */
     private $parent;
 
     public function setUp(): void
@@ -54,6 +57,11 @@ class CategoryTest extends TestCase
             'type' => 'learn',
             'state' => Article::PUBLISHED,
         ]);
+
+        $this->assertNotEquals(
+            [$private->id],
+            $this->category->public_articles->pluck('id')->all()
+        );
 
         $this->assertEquals(
             [$public->id],

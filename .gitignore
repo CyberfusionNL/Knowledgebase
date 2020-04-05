@@ -14,3 +14,4 @@ yarn-error.log
 .gitmodules
 .DS_STORE
 composer.lock
+.php_cs.cache

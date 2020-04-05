@@ -2,9 +2,10 @@
 
 namespace App\Console\Commands\User;
 
-use App\Author;
-use App\User;
+use App\Models\Author;
+use App\Models\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class CreateCommand extends Command
@@ -36,10 +37,11 @@ class CreateCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return void
      */
     public function handle()
     {
+        DB::beginTransaction();
         $user = new User;
         $user->name = $this->ask('Username');
         $user->twofactor_secret = '';
@@ -63,6 +65,7 @@ class CreateCommand extends Command
             $author->organisation = $this->ask('For what firm does he work?');
             $author->save();
             $this->alert('Author settings have been initialized');
+            DB::commit();
         } else {
             $this->alert('User has not been created.');
         }

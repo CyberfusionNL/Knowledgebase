@@ -1,13 +1,13 @@
 <?php
 
-use App\Article;
+use App\Models\Article;
 
 function selected($value, $key)
 {
     return ($value == $key) ? 'selected' : '';
 }
 
-function hasTwofactor(\App\User $user)
+function hasTwofactor(\App\Models\User $user)
 {
     return $user->twofactor_secret !== '';
 }

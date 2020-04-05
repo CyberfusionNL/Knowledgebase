@@ -2,8 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Article;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Models\Article;
 use Illuminate\Support\Str;
 use Tests\TestCase;
 
@@ -19,7 +18,7 @@ class BasicTests extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
-        $response->assertSeeText('Find everything you need to now');
+        $response->assertSeeText('Find everything you need to know');
     }
 
     /**

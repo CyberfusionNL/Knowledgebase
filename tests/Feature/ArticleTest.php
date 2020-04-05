@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use App\Article;
-use App\Author;
-use App\Category;
-use App\User;
+use App\Models\Article;
+use App\Models\Author;
+use App\Models\Category;
+use App\Models\User;
 use Tests\TestCase;
 
 class ArticleTest extends TestCase
@@ -36,15 +36,7 @@ class ArticleTest extends TestCase
     {
         $this->assertEquals(
             $this->author->id,
-            $this->article->author->first()->id
-        );
-    }
-
-    public function testGetAuthorAttribute()
-    {
-        $this->assertEquals(
-            $this->author->id,
-            $this->article->getAuthorAttribute()->first()->id
+            $this->article->author->id
         );
     }
 
@@ -52,7 +44,7 @@ class ArticleTest extends TestCase
     {
         $this->assertEquals(
             $this->category->id,
-            $this->article->category()->first()->id
+            $this->article->category->id
         );
     }
 }

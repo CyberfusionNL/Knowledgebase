@@ -27,8 +27,8 @@ class ArticleRequest extends FormRequest
             'title' => 'required|string|max:64',
             'body' => 'required|string',
             'state' => 'required|string|in:review,published,draft,planned',
-            'summary' => 'required|string|max:192',
-            'category' => 'required|string|exists:categories,id',
+            'short_summary' => 'required|string|max:192',
+            'category_id' => 'required|numeric|exists:categories,id',
             'slug' => 'nullable|max:64',
         ];
     }
