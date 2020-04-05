@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use PragmaRX\Google2FALaravel\Google2FA;
 use PragmaRX\Google2FALaravel\Support\Authenticator;
 
 class LoginController extends Controller
@@ -68,7 +67,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except(['logout', 'lock']);
     }
 
     /**
@@ -83,6 +82,7 @@ class LoginController extends Controller
 
     public function lock(Request $request)
     {
-        return Google2FA::logout();
+        (new Authenticator($request))->logout();
+        return redirect()->route('admin.dashboard');
     }
 }

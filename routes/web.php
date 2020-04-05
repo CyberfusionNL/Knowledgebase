@@ -22,7 +22,7 @@ Route::prefix('/admin')->group(function () {
     Route::post('/login', 'Auth\LoginController@login');
     Route::post('/2fa', 'Auth\LoginController@twofactor')->name('2fa')->middleware('2fa');
     Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
-    Route::post('/lock', 'Auth\LoginController@lock')->name('lock');
+    Route::any('/lock', 'Auth\LoginController@lock')->name('lock');
 
     Route::group(['middleware' => ['auth', '2fa'], 'namespace' => 'Admin'], function () {
         Route::get('/', 'DashboardController@dashboard');
