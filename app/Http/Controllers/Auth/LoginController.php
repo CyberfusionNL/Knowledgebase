@@ -83,6 +83,7 @@ class LoginController extends Controller
     public function lock(Request $request)
     {
         (new Authenticator($request))->logout();
+
         return redirect()->route('admin.dashboard');
     }
 }
